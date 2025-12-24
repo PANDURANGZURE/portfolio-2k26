@@ -1,0 +1,25 @@
+.grid-bg {
+  /* keep container positioning for overlay */
+  position: relative;
+  overflow: hidden;
+
+  /* base gradient background */
+  background: linear-gradient(to right, #000000, #181818, #000000);
+}
+
+/* stronger grid overlay via pseudo-element so it's easy to tweak separately */
+.grid-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  /* denser grid with higher opacity for visibility */
+  background-image:
+    linear-gradient(rgba(15, 15, 15, 0.834) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 15, 15, 0.834) 1px, transparent 1px);
+  background-size: 30px 30px, 30px 30px;
+  background-repeat: repeat, repeat;
+  background-position: 0 0, 0 0;
+  opacity: 1;
+}

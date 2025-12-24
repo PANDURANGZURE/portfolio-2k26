@@ -2,11 +2,11 @@ import React from 'react'
 
 function Hero() {
   return (
-    <>
-    <div className=' grid-bg h-screen w-screen bg-gradient-to-r from-black via-[#181818] to-black text-white'>
-
+    <div className='h-screen flex justify-center items-center'>
+      <div>
+        <h1>👋🏻 Hello, I'm</h1>
+      </div>
     </div>
-    </>
   )
 }
 

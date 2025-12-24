@@ -3,7 +3,7 @@ import { Github, Linkedin,Instagram } from 'lucide-react';
 
 function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-r from-black via-[#181818] to-black text-white py-10 shadow-inner z-50">
+    <footer className="w-full bg-gradient-to-r   from-black via-[#181818] to-black text-white py-10 shadow-inner z-50">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
         <div className="text-center md:text-left">
           <h2 className="text-xl font-bold text-cyan-200">PANDURANG ZURE<span className="text-white">.</span></h2>
