@@ -12,6 +12,9 @@ function App() {
     <>
     <Header/>
     <Hero/>
+    <div className='h-screen'>
+
+    </div>
     <Footer/>
     </>
   )
