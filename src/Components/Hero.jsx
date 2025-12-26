@@ -21,7 +21,7 @@ function Hero() {
     </div>
     <div>
       <p className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p className='md:text-8xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
+    <p className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
     </div>
     <div>
       <p className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
