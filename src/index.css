@@ -1,3 +1,28 @@
 @import "tailwindcss";
 
-/* .grid-bg rules moved to src/Components/Hero.css for component-scoped styling */
+
+@font-face {
+  font-family: 'normal';
+  src: url('./assets/fonts/Flex-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.normal{
+    font-family: normal;
+}
+
+
+
+
+@font-face {
+  font-family: 'bold';
+  src: url('./assets/fonts/Hagrid-Text-Extrabold-trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bold{
+    font-family: bold;
+}
+
