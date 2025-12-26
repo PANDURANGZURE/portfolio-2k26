@@ -20,14 +20,14 @@ function Hero() {
       </div>
     </div>
     <div>
-      <p className='normal text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p className='md:text-8xl text-5xl normal md:mt-5 mt-8'>PANDURANG ZURE </p>
+      <p className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
+    <p className='md:text-8xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
     </div>
     <div>
-      <p className='normal text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
-    <p  className='md:text-8xl text-5xl bold md:mt-0 mt-5'>FRONTEND DEVLOPER </p>
+      <p className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
+    <p  className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5'>FRONTEND DEVLOPER </p>
     </div>
-    <p className='normal text-xl md:text-2xl  mt-5 '>Running on <span className=' font-extrabold text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
+    <p className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
     <div className="flex text-center space-x-8 m-3">
               <a href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition">
                 <Github size={38} />
@@ -40,7 +40,7 @@ function Hero() {
               </a>
             </div>
     <div className='flex justify-end text-right'>
-      <p className='normal md:text-lg justify-end mt-10 text-right '>
+      <p className='bold md:text-lg justify-end mt-10 text-right '>
         My goal is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
         I pay close attention to design aesthetics and usability,<br/> ensuring that each project is both visually striking and seamless to navigate.
       </p>

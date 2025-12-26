@@ -15,6 +15,7 @@
 
 
 
+
 @font-face {
   font-family: 'bold';
   src: url('./assets/fonts/Hagrid-Text-Extrabold-trial.ttf') format('truetype');
@@ -24,5 +25,17 @@
 
 .bold{
     font-family: bold;
+}
+
+
+@font-face {
+  font-family: 'Heading';
+  src: url('./assets/fonts/Hagrid-Regular-trial.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bold{
+    font-family: heading;
 }
 
