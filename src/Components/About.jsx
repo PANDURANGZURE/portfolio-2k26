@@ -9,19 +9,21 @@ function About() {
   const boxRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(boxRef.current, {
-      x: 80,        // 👉 right (small)
-      y: -60,       // 👆 up (small)
-      ease: "none",
-      scrollTrigger: {
-        trigger: boxRef.current,
-        start: "top 20%",
-        end: "bottom 60%",
-        scrub: true,
-        markers: true, // enable if needed
-      },
-    });
-  }, []);
+  gsap.to(boxRef.current, {
+    x: 80,
+    y: -60,
+    ease: "power1.out",   
+    force3D: true,        
+    scrollTrigger: {
+      trigger: boxRef.current,
+      start: "top 20%",
+      end: "bottom 60%",
+      scrub: 5,        
+    //   markers: true,
+    },
+  });
+}, []);
+
 
   return (
     <section className=" flex flex-col items-center justify-center">
