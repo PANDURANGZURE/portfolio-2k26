@@ -30,7 +30,7 @@ function Hero() {
           start: 'top bottom',
           end: 'bottom top',
           scrub: true,   // smooth scroll-based animation
-          markers: true
+          
         },
       });
       
@@ -107,7 +107,7 @@ function Hero() {
             </div>
     <div className='flex justify-end text-right'>
       <p ref={boxRef} className='bold md:text-lg justify-end mt-10 text-right slide-right pr-20 '>
-        My goal is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
+        My <span  className=' text-orange-500'>goal</span> is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
         I pay close attention to design aesthetics and usability,<br/> ensuring that each project is both visually striking and seamless to navigate.
       </p>
     </div>
