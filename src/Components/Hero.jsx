@@ -19,17 +19,26 @@ function Hero() {
     
     gsap.registerPlugin(ScrollTrigger);
 
-    // gsap.to(boxRef.current, {
-    //   x: 200,      // move right
-    //   y: -150,     // move up
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: boxRef.current,
-    //     start: "top 80%",
-    //     end: "top 20%",
-    //     scrub: true,   // smooth scroll-based animation
-    //   },
-    // });
+    if (boxRef.current) {
+      const tBox = gsap.to(boxRef.current, {
+        x: 300,      // move right (to)
+        y: -200,     // move up (to)
+        ease: 'none',
+        scrollTrigger: {
+          trigger: boxRef.current,
+          // broader trigger range to ensure activation
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,   // smooth scroll-based animation
+          markers: true
+        },
+      });
+      
+      // give browser a tick in case layout isn't stable, then refresh
+      setTimeout(() => ScrollTrigger.refresh(), 50);
+    } else {
+      
+    }
 
 
     const updateRotation = (scrollPos) => {
@@ -54,7 +63,7 @@ function Hero() {
 
   return (
     <>
-    <div className='w-screen h-screen flex flex-col justify-center p-5   '>
+    <div className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden   '>
     <div className='flex justify-between'>
       <div className='flex items-center space-x-4'>
         <img
@@ -78,7 +87,7 @@ function Hero() {
     </div>
     <div>
       <p className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p ref={boxRef} className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
+    <p  className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
     </div>
     <div>
       <p className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
@@ -97,7 +106,7 @@ function Hero() {
               </a>
             </div>
     <div className='flex justify-end text-right'>
-      <p className='bold md:text-lg justify-end mt-10 text-right slide-right'>
+      <p ref={boxRef} className='bold md:text-lg justify-end mt-10 text-right slide-right pr-20 '>
         My goal is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
         I pay close attention to design aesthetics and usability,<br/> ensuring that each project is both visually striking and seamless to navigate.
       </p>
