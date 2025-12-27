@@ -67,7 +67,7 @@ function Hero() {
       <div className='flex items-center space-x-4'>
         <img
           ref={img1Ref}
-          className='md:h-34 h-20 fade-scale slide-left'
+          className='md:h-34 h-20 fade-scale slide-left '
           src={pic}
           alt="portrait 1"
           style={{ transform: 'rotate(0deg)', willChange: 'transform' }}
@@ -81,7 +81,7 @@ function Hero() {
         />
       </div>
       <div ref={arrowRef} className='fade-scale' style={{ transform: 'rotate(0deg)', willChange: 'transform' }}>
-        <MdOutlineArrowOutward className='md:text-9xl text-7xl' />
+        <MdOutlineArrowOutward className='md:text-9xl text-7xl hover:rotate-12' />
       </div>
     </div>
     <div>

@@ -22,7 +22,7 @@ function About() {
         trigger: boxRef.current,
         start: "top 20%",
         end: "bottom 60%",
-        scrub: 0.8,
+        scrub: 5,
       },
     });
   }, []);
@@ -43,25 +43,18 @@ function About() {
   )
     .then((res) => res.json())
     .then((data) => {
-      setCerti(Object.keys(data.My).length); // ✅ count object items
+      setCerti(Object.keys(data.My).length);
     })
     .catch(console.error);
   }, []);
 
   
   const stats = [
-    
-    {
-      icon: <Award size={24} />,
-      title: "Certifications",
-      desc: "Innovative web solutions crafted",
-      value: certi,
-    },
     {
       icon: <Code2 size={24} />,
       title: "Total Projects",
       desc: "Innovative web solutions crafted",
-      value: count, // ✅ dynamic
+      value: count, 
     },
     {
       icon: <Trophy size={24} />,
@@ -69,10 +62,16 @@ function About() {
       desc: "Recognized for skills and efforts",
       value: "2",
     },
+    {
+      icon: <Award size={24} />,
+      title: "Certifications",
+      desc: "Innovative web solutions crafted",
+      value: certi,
+    },
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center">
+    <section className="flex flex-col items-center justify-center mb-10">
       <p
         ref={boxRef}
         className="text-3xl md:text-6xl font-bold bold text-center"
@@ -90,7 +89,7 @@ function About() {
             <img
               src="https://pandurang-2k25.netlify.app/assets/pfp-_lj6DcG3.png"
               alt="Avatar"
-              className="w-32 h-32 md:w-72 md:h-72 rounded-full object-cover grayscale hover:grayscale-0 transition"
+              className="w-32 h-32 md:w-72 md:h-72 rounded-full object-cover grayscale hover:grayscale-0 transition hover:rotate-12"
             />
           </div>
         </div>
@@ -122,11 +121,11 @@ My goal is to build websites that are not only functional and efficient but also
               className="relative rounded-2xl border bg-white border-black/60 p-6 flex flex-col justify-between transition hover:shadow-2xl hover:scale-105"
             >
               <div className="flex items-start justify-between">
-                <div className="w-12 h-12 rounded-full border border-black/60 flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full border border-black/60 flex items-center justify-center hover:rotate-12 ">
                   {item.icon}
                 </div>
 
-                <span className="text-4xl md:text-5xl font-bold">
+                <span className="text-4xl md:text-5xl font-bold hover:rotate-12">
                   {item.value}
                 </span>
               </div>
