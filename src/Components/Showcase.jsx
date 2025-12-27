@@ -7,6 +7,7 @@ import { PiMedalFill } from 'react-icons/pi';
 import { TbLayersIntersect } from 'react-icons/tb';
 import { FiExternalLink } from "react-icons/fi";
 import { MdOutlineReadMore } from "react-icons/md";
+import Line from "./Line"
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -71,6 +72,21 @@ function Showcase() {
   };
 
   useEffect(() => {
+    gsap.to(boxRef.current, {
+      x: 80,
+      y: -60,
+      ease: "power1.out",
+      force3D: true,
+      scrollTrigger: {
+        trigger: boxRef.current,
+        start: "top 20%",
+        end: "bottom 60%",
+        scrub: 5,
+      },
+    });
+  }, []);
+
+  useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       setData([]);
@@ -122,11 +138,12 @@ function Showcase() {
 
   return (
     <div className="min-h-screen bg-white pb-20 pt-10 px-4">
-      <div className="max-w-6xl mx-auto">
-        <h2 ref={boxRef} className="text-4xl md:text-6xl font-bold text-center mb-12">Portfolio Showcase</h2>
-
+      <div className=" mx-auto">
+        <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 ">Portfolio Showcase</h2>
+        <p className="text-lg md:text-xl text-center leading-relaxed bold text-black mb-">Explore my journey through <span className="text-orange-500">projects</span> , <span className="text-orange-500">certifications</span> and <span className="text-orange-500">technical expertise.</span> <br /> Each section represents a milestone in my continuous learning path.</p>
+        <Line text="Showcase" />
         {/* Navigation */}
-        <div className="border border-gray-300 rounded-2xl p-2 flex gap-3 mb-10 max-w-3xl mx-auto bg-white shadow-sm">
+        <div className="border mt-3 border-gray-300 rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl  mx-auto bg-white shadow-sm">
           <button onClick={() => setView('projects')} className={`${btnBase} ${view === 'projects' ? 'border-black bg-gray-50' : 'border-transparent text-gray-400'}`}>
             <HiCode size={24} className="mb-1" />
             <span className="text-sm font-semibold">Projects</span>
@@ -143,11 +160,11 @@ function Showcase() {
 
         {/* Content */}
         {loading ? (
-          <div className="text-center py-20 text-gray-400 animate-pulse">Loading {view}...</div>
+          <div className="text-center py-20 text-gray-400 animate-pulse max-w-6xl">Loading {view}...</div>
         ) : data.length === 0 ? (
           <div className="text-center py-20 text-red-500 font-medium">No data found in {view}.json</div>
         ) : (
-          <div className={`grid gap-6 ${view === 'skills' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
+          <div className={`grid gap-6 max-w-6xl mx-auto ${view === 'skills' ? 'grid-cols-2 sm:grid-cols-3 md:grid-cols-6' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'}`}>
             {(view === 'skills' ? data : data.slice(0, visibleCount)).map((item, idx) => (
               view === 'projects' ? <ProjectCard key={idx} item={item} /> :
               view === 'certs' ? <CertificateCard key={idx} item={item} /> :
