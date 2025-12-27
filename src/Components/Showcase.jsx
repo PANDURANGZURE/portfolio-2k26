@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from "./Line";
+import { HiCode } from 'react-icons/hi';
+import { PiMedalFill } from 'react-icons/pi';
+import { TbLayersIntersect } from 'react-icons/tb';
 
 
 gsap.registerPlugin(ScrollTrigger);
@@ -34,6 +37,8 @@ function Showcase() {
         Portfolio Showcase
       </p>
       <p className="text-center bold mt-5 md:text-xl ">Explore my journey through <span className="text-orange-500">projects</span> , <span className="text-orange-500">certifications</span> and <span className="text-orange-500">technical expertise</span>. <br/> Each section represents a milestone in my continuous learning path.</p>
+    <Line text='Showcase'/>
+    
     </div>
   )
 }
