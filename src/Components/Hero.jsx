@@ -1,4 +1,6 @@
 import React, { useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import '../index.css'
 import pic from '../assets/pic1.png'
 import pic1 from '../assets/pic2.png'
@@ -10,35 +12,44 @@ function Hero() {
   const img1Ref = useRef(null);
   const img2Ref = useRef(null);
   const arrowRef = useRef(null);
-  const rafId = useRef(null);
-  const lastScrollY = useRef(window.scrollY || 0);
   const multiplier = 0.35;
+  const boxRef = useRef(null);
 
   useEffect(() => {
-    const update = () => {
-      const rotation = (lastScrollY.current * multiplier) % 360;
-      if (img1Ref.current) img1Ref.current.style.transform = `rotate(${rotation}deg)`;
-      if (img2Ref.current) img2Ref.current.style.transform = `rotate(${-rotation}deg)`;
-      if (arrowRef.current) arrowRef.current.style.transform = `rotate(${rotation}deg)`;
-      rafId.current = null;
+    
+    gsap.registerPlugin(ScrollTrigger);
+
+    // gsap.to(boxRef.current, {
+    //   x: 200,      // move right
+    //   y: -150,     // move up
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: boxRef.current,
+    //     start: "top 80%",
+    //     end: "top 20%",
+    //     scrub: true,   // smooth scroll-based animation
+    //   },
+    // });
+
+
+    const updateRotation = (scrollPos) => {
+      const rotation = (scrollPos * multiplier) % 360;
+      if (img1Ref.current) gsap.set(img1Ref.current, { rotation });
+      if (img2Ref.current) gsap.set(img2Ref.current, { rotation: -rotation });
+      if (arrowRef.current) gsap.set(arrowRef.current, { rotation });
     };
 
-    const handleScroll = () => {
-      lastScrollY.current = window.scrollY;
-      if (rafId.current == null) {
-        rafId.current = requestAnimationFrame(update);
-      }
-    };
+    const st = ScrollTrigger.create({
+      onUpdate: (self) => updateRotation(self.scroll())
+    });
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    // initialize transforms in case page is already scrolled
-    lastScrollY.current = window.scrollY;
-    update();
+  
+    updateRotation(window.scrollY || 0);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (rafId.current) cancelAnimationFrame(rafId.current);
+      if (st && st.kill) st.kill();
     };
+    
   }, []);
 
   return (
@@ -67,7 +78,7 @@ function Hero() {
     </div>
     <div>
       <p className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
+    <p ref={boxRef} className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
     </div>
     <div>
       <p className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
