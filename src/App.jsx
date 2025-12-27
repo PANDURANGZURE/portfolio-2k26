@@ -1,22 +1,18 @@
-import { useState } from 'react'
-import Header from './Components/Header'
-import Footer from './Components/Footer'
-import Hero from './Components/Hero'
-import Line from './Components/Line'
-
-
+import Cursor from "./Components/Cursor";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Hero from "./Components/Hero"
 
 function App() {
-  
-
   return (
     <>
+    <Cursor/>
     <Header/>
     <Hero/>
-    <Line text='Who Am I'/>
     <Footer/>
+      
     </>
-  )
+  );
 }
 
-export default App
+export default App;

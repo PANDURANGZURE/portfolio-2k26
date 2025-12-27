@@ -39,3 +39,6 @@
     font-family: heading;
 }
 
+body{
+  cursor: none;
+}
