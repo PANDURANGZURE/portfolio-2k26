@@ -15,10 +15,10 @@ function About() {
       ease: "none",
       scrollTrigger: {
         trigger: boxRef.current,
-        start: "top 40%",
-        end: "bottom 40%",
+        start: "top 20%",
+        end: "bottom 60%",
         scrub: true,
-        // markers: true, // enable if needed
+        markers: true, // enable if needed
       },
     });
   }, []);
