@@ -8,12 +8,18 @@ import { TbLayersIntersect } from 'react-icons/tb';
 import { FiExternalLink } from "react-icons/fi";
 import { MdOutlineReadMore } from "react-icons/md";
 import Line from "./Line"
+import { Link } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // --- SUB-COMPONENTS ---
 
 const ProjectCard = ({ item }) => (
+  <Link 
+  to={`/project/${item.title.toLowerCase().replace(/\s+/g, '-')}`} 
+  state={{ item }} // This passes the whole project object to the details page
+  className="text-black text-sm font-medium flex items-center gap-1 hover:underline"
+>
   <div className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
     <div className="w-full aspect-video bg-gray-100 rounded-2xl mb-4 overflow-hidden">
       <img src={item.image} alt={item.title} className="w-full h-full object-cover " />
@@ -24,11 +30,11 @@ const ProjectCard = ({ item }) => (
       <a href={item.preview || item.link} target="_blank" rel="noreferrer" className="text-orange-500 text-sm font-medium flex items-center gap-1 hover:underline">
         Preview <FiExternalLink/>
       </a>
-      <a href={item.details || item.github} target="_blank" rel="noreferrer" className="text-black text-sm font-medium flex items-center gap-1 hover:underline">
-        Details <MdOutlineReadMore size={30} />
-      </a>
+      
+      
+  Details<MdOutlineReadMore size={30} />
     </div>
-  </div>
+  </div></Link>
 );
 
 const CertificateCard = ({ item }) => (
