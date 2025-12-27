@@ -4,17 +4,12 @@ import Footer from "./Components/Footer";
 import Hero from "./Components/Hero"
 import About from "./Components/About";
 import Showcase from "./Components/Showcase";
+import Main from "./Pages/Main"
 
 function App() {
   return (
     <>
-    <Cursor/>
-    <Header/>
-    <Hero/>
-    <About/>
-    <Showcase/>
-    <div className="h-screen"></div>
-    <Footer/>
+    <Main/>
     </>
   );
 }
