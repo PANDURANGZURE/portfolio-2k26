@@ -26,12 +26,14 @@ export default function Cursor() {
   }, []);
 
   return createPortal(
+
+    
     
         <CiLocationArrow1
       ref={cursorRef}
       className="fixed top-0 left-0 text-3xl scale-x-[-1] z-[9999] hidden md:block pointer-events-none   text-black"
     />
-    ,
-    document.body
+    
+    ,document.body
   );
 }
