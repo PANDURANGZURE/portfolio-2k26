@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import '../index.css'
 import pic from '../assets/pic1.png'
 import pic1 from '../assets/pic2.png'
@@ -7,15 +7,61 @@ import { Github, Linkedin,Instagram } from 'lucide-react';
 
 
 function Hero() {
+  const img1Ref = useRef(null);
+  const img2Ref = useRef(null);
+  const arrowRef = useRef(null);
+  const rafId = useRef(null);
+  const lastScrollY = useRef(window.scrollY || 0);
+  const multiplier = 0.35;
+
+  useEffect(() => {
+    const update = () => {
+      const rotation = (lastScrollY.current * multiplier) % 360;
+      if (img1Ref.current) img1Ref.current.style.transform = `rotate(${rotation}deg)`;
+      if (img2Ref.current) img2Ref.current.style.transform = `rotate(${-rotation}deg)`;
+      if (arrowRef.current) arrowRef.current.style.transform = `rotate(${rotation}deg)`;
+      rafId.current = null;
+    };
+
+    const handleScroll = () => {
+      lastScrollY.current = window.scrollY;
+      if (rafId.current == null) {
+        rafId.current = requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // initialize transforms in case page is already scrolled
+    lastScrollY.current = window.scrollY;
+    update();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (rafId.current) cancelAnimationFrame(rafId.current);
+    };
+  }, []);
+
   return (
     <>
     <div className='w-screen h-screen flex flex-col justify-center p-5   '>
     <div className='flex justify-between'>
-      <div className='flex'>
-      <img className='md:h-34 h-20' src={pic} alt="" />
-      <img className='md:h-34 h-20' src={pic1} alt="" />
-    </div>
-      <div>
+      <div className='flex items-center space-x-4'>
+        <img
+          ref={img1Ref}
+          className='md:h-34 h-20 fade-scale slide-left'
+          src={pic}
+          alt="portrait 1"
+          style={{ transform: 'rotate(0deg)', willChange: 'transform' }}
+        />
+        <img
+          ref={img2Ref}
+          className='md:h-34 h-20 fade-scale slide-right'
+          src={pic1}
+          alt="portrait 2"
+          style={{ transform: 'rotate(0deg)', willChange: 'transform' }}
+        />
+      </div>
+      <div ref={arrowRef} className='fade-scale' style={{ transform: 'rotate(0deg)', willChange: 'transform' }}>
         <MdOutlineArrowOutward className='md:text-9xl text-7xl' />
       </div>
     </div>
@@ -28,19 +74,19 @@ function Hero() {
     <p  className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5'>FRONTEND DEVLOPER </p>
     </div>
     <p className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
-    <div className="flex text-center space-x-8 m-3">
-              <a href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition">
+    <div className="flex text-center space-x-8 m-3 icons">
+              <a href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Github size={38} />
               </a>
-              <a href="https://www.linkedin.com/in/pandurang-santosh-zure-au3112/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition">
+              <a href="https://www.linkedin.com/in/pandurang-santosh-zure-au3112/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Linkedin size={38} />
               </a>
-              <a href="https://www.instagram.com/_anonymous_3112_/" target="_blank" rel="noopener noreferrer" className="hover:text-gray-800 transition">
+              <a href="https://www.instagram.com/_anonymous_3112_/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Instagram size={38} />
               </a>
             </div>
     <div className='flex justify-end text-right'>
-      <p className='bold md:text-lg justify-end mt-10 text-right '>
+      <p className='bold md:text-lg justify-end mt-10 text-right slide-right'>
         My goal is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
         I pay close attention to design aesthetics and usability,<br/> ensuring that each project is both visually striking and seamless to navigate.
       </p>
