@@ -26,15 +26,14 @@ function Hero() {
         ease: 'none',
         scrollTrigger: {
           trigger: boxRef.current,
-          // broader trigger range to ensure activation
+          
           start: 'top bottom',
           end: 'bottom top',
-          scrub: true,   // smooth scroll-based animation
+          scrub: true,  
           
         },
       });
       
-      // give browser a tick in case layout isn't stable, then refresh
       setTimeout(() => ScrollTrigger.refresh(), 50);
     } else {
       
