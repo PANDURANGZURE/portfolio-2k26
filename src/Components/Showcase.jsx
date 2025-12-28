@@ -10,6 +10,8 @@ import { MdOutlineReadMore } from "react-icons/md";
 import Line from "./Line"
 import { Link } from 'react-router-dom';
 import Tilt from 'react-parallax-tilt';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -98,6 +100,8 @@ function Showcase() {
   const [loading, setLoading] = useState(true);
   const [visibleCount, setVisibleCount] = useState(6);
   const boxRef = useRef(null);
+
+  
 
   const fixUrl = (url) => {
     if (!url) return "";

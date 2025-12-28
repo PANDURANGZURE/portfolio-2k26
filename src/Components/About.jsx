@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from "./Line";
 import { Code2, Award, Trophy } from "lucide-react";
 import Tilt from 'react-parallax-tilt';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 gsap.registerPlugin(ScrollTrigger);
 const tiltOptions = {
@@ -16,6 +18,9 @@ const tiltOptions = {
     glareBorderRadius: "16px",
     transitionSpeed: 1500
   };
+
+  
+  
 
 function About() {
   const boxRef = useRef(null);
@@ -37,6 +42,15 @@ function About() {
       },
     });
   }, []);
+
+  //aos
+  useEffect(() => {
+      AOS.init({
+        duration: 1000,   // animation duration
+        once: true,       // animate only once
+        easing: "ease-in-out",
+      });
+    }, []);
 
   
   useEffect(() => {
@@ -82,8 +96,9 @@ function About() {
   ];
 
   return (
-    <section className="flex flex-col items-center justify-center mb-10">
+    <section data-aos="fade-up" className="flex flex-col items-center justify-center mb-10">
       <p
+      
         ref={boxRef}
         className="text-3xl md:text-6xl font-bold bold text-center"
       >
@@ -96,7 +111,7 @@ function About() {
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-28 mt-10 md:mt-16">
         {/* Avatar */}
         <Tilt {...tiltOptions} className="">
-          <div className="flex-shrink-0">
+          <div data-aos="fade-right" className="flex-shrink-0">
           <div className="w-40 h-40 md:w-72 md:h-72 rounded-full border border-black flex items-center justify-center">
             <img
               src="https://pandurang-2k25.netlify.app/assets/pfp-_lj6DcG3.png"
@@ -109,7 +124,7 @@ function About() {
         
 
         {/* Text */}
-        <div className="text-center md:text-left max-w-2xl">
+        <div data-aos="fade-left" className="text-center md:text-left max-w-2xl">
           <p className="text-lg md:text-xl leading-relaxed bold text-black">
             I'm a{" "}
             <span className="text-orange-500 font-semibold">
@@ -127,7 +142,7 @@ My goal is to build websites that are not only functional and efficient but also
       </div>
 
       {/* Stats */}
-      <section className="w-full px-4 py-12">
+      <section data-aos="fade-up" className="w-full px-4 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stats.map((item, index) => (
             <Tilt {...tiltOptions} className="">
