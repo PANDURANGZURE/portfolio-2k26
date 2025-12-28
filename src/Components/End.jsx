@@ -1,5 +1,7 @@
 import React from 'react'
 import { Github, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function End() {
   return (

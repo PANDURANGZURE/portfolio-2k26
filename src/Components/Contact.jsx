@@ -3,6 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from './Line'
 import Tilt from 'react-parallax-tilt';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,6 +22,16 @@ export default function ContactForm() {
     glareBorderRadius: "16px",
     transitionSpeed: 1500
   };
+
+  //aos
+    useEffect(() => {
+        AOS.init({
+          duration: 2000,   // animation duration
+          once: true,       // animate only once
+          easing: "ease-in-out",
+        });
+      }, []);
+  
 
     useEffect(() => {
     gsap.to(boxRef.current, {
@@ -58,22 +70,24 @@ export default function ContactForm() {
 
   return (
     <> 
-    <div className="overflow-hidden flex flex-col items-center justify-center mt-14 w-screen">
+    <div data-aos="fade-up" className="overflow-hidden flex flex-col items-center justify-center mt-14 w-screen">
             <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 mt-10 "> Connect with me</h2>
             <Line text="Contact" />
             
         </div>
         <div className="flex justify-center items-center">
             <div className="w-[60%] flex items-center  bold font-extrabold justify-start mt-10 text-3xl">
-            <p className="text-left uppercase">I'm open for freelance projects, feel free to <br />email me to see how can we collaborate.</p>
+            <p data-aos="fade-right" className="text-left uppercase">I'm open for freelance projects, feel free to <br />email me to see how can we collaborate.</p>
         </div>
         </div>
         
     <form className="flex flex-col justify-center mt-10 items-center gap-y-10" onSubmit={onSubmit}>
-        <Tilt {...tiltOptions} className="md:w-[60%] w-[80%]"><p className="bold">Email</p><input className="border hover:shadow-black hover:shadow-2xl border-black w-full  rounded-lg h-10 p-2" type="text" name="name" required/></Tilt>
-      <Tilt {...tiltOptions} className="md:w-[60%] w-[80%]">
+        <div data-aos="fade-left" className="md:w-[60%] w-[80%]"><Tilt {...tiltOptions} data-aos="fade-left" ><p  className="bold">Email</p><input className="border hover:shadow-black hover:shadow-2xl border-black w-full  rounded-lg h-10 p-2" type="text" name="name" required/></Tilt></div>
+      <div data-aos="fade-right" className="md:w-[60%] w-[80%]">
+        <Tilt data-aos="fade-right" {...tiltOptions} >
         <p className="bold">Message:</p>
         <textarea name="message" className="border hover:shadow-black hover:shadow-2xl border-black w-full p-2 rounded-lg min-h-40" required></textarea></Tilt>
+      </div>
       
       <button className="bg-black text-white py-3 px-8 bold rounded-lg hover:bg-white hover:text-black hover:border hover:border-black" type="submit">Submit</button>
       <span>{result}</span>
