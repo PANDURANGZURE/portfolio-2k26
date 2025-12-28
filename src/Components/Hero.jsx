@@ -6,6 +6,9 @@ import pic from '../assets/pic1.png'
 import pic1 from '../assets/pic2.png'
 import { MdOutlineArrowOutward } from "react-icons/md";
 import { Github, Linkedin,Instagram } from 'lucide-react';
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 
 
 function Hero() {
@@ -14,6 +17,14 @@ function Hero() {
   const arrowRef = useRef(null);
   const multiplier = 0.35;
   const boxRef = useRef(null);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,   // animation duration
+      once: true,       // animate only once
+      easing: "ease-in-out",
+    });
+  }, []);
 
   useEffect(() => {
     
@@ -63,7 +74,7 @@ function Hero() {
   return (
     <>
     <div className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden pointer-events-none   '>
-    <div className='flex justify-between mt-5'>
+    <div   className='flex justify-between mt-5'>
       <div className='flex items-center space-x-4'>
         <img
           ref={img1Ref}
@@ -71,6 +82,7 @@ function Hero() {
           src={pic}
           alt="portrait 1"
           style={{ transform: 'rotate(0deg)', willChange: 'transform' }}
+          
         />
         <img
           ref={img2Ref}
@@ -85,22 +97,22 @@ function Hero() {
       </div>
     </div>
     <div>
-      <p className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p  className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
+      <p data-aos="fade-right" className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
+    <p data-aos="fade-up"  className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
     </div>
     <div>
-      <p className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
-    <p  className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5'>FRONTEND DEVLOPER </p>
+      <p data-aos="fade-right" className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
+    <p data-aos="fade-up" className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5'>FRONTEND DEVLOPER </p>
     </div>
-    <p className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
-    <div className="flex text-center space-x-8 m-3 icons">
-              <a href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
+    <p data-aos="fade-left" className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
+    <div  className="flex text-center space-x-8 m-3 icons">
+              <a data-aos="zoom-out" href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Github size={38} />
               </a>
-              <a href="https://www.linkedin.com/in/pandurang-santosh-zure-au3112/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
+              <a data-aos="zoom-out" href="https://www.linkedin.com/in/pandurang-santosh-zure-au3112/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Linkedin size={38} />
               </a>
-              <a href="https://www.instagram.com/_anonymous_3112_/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
+              <a data-aos="zoom-out" href="https://www.instagram.com/_anonymous_3112_/" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Instagram size={38} />
               </a>
             </div>
