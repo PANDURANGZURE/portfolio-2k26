@@ -3,11 +3,22 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from './Line'
 import img from '../assets/achiv.png'
+import Tilt from 'react-parallax-tilt';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function Achivements() {
     const boxRef = useRef(null);
+    const tiltOptions = {
+    tiltMaxAngleX: 12,
+    tiltMaxAngleY: 12,
+    perspective: 1000,
+    scale: 1.05,
+    glareEnable: true,
+    glareMaxOpacity: 0.3,
+    glareBorderRadius: "16px",
+    transitionSpeed: 1500
+  };
 
     useEffect(() => {
     gsap.to(boxRef.current, {
@@ -37,21 +48,49 @@ function Achivements() {
     {/* img */}
     <div className="flex flex-col justify-center items-center mt-10">
         
-        <div className="hover:border-2 w-[80%]  rounded-2xl flex flex-col hover:shadow-2xl hover:scale-110 transition  ">
-            <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh </p>
-            <img className="rounded-2xl h-[80%]" src="https://github.com/PANDURANGZURE/project-img/blob/main/assets/certificates/nirmitived%20winner.jpg?raw=true" alt="" />
-        </div>
+        <div className="p-4 md:p-10">
+      {/* 1. Main Wide Certificate */}
+      <div className="flex justify-center">
+        <Tilt {...tiltOptions} className="w-[80%]">
+          <div className="hover:border-2 rounded-2xl flex flex-col hover:shadow-2xl transition bg-white overflow-hidden border border-gray-900">
+            <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh</p>
+            <img 
+              className="rounded-b-2xl h-[50%] object-cover object-left" 
+              src="https://github.com/PANDURANGZURE/project-img/blob/main/assets/certificates/nirmitived%20winner.jpg?raw=true" 
+              alt="Nirmitivedh Winner" 
+            />
+          </div>
+        </Tilt>
+      </div>
 
+      {/* 2. Side-by-Side Certificates */}
+      <div className="flex justify-center items-center md:flex-row flex-col gap-8 mt-10">
+        
+        {/* Left Side Certificate */}
+        <Tilt {...tiltOptions} className="md:w-[39%] w-[80%]">
+          <div className=" border-gray-900 hover:border-2 shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden border border-gray-900">
+            <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh</p>
+            <img 
+              className="rounded-b-2xl aspect-[4/3]  object-cover object-left" 
+              src="https://media.licdn.com/dms/image/v2/D4D22AQFZK3ADstE0AA/feedshare-shrink_2048_1536/B4DZXtXBroHsAo-/0/1743443995185?e=1768435200&v=beta&t=qBOGpqsjgpXK_kIya7MCW0AYXTWQG1g0YaHDjHBaqYM" 
+              alt="Nirmitivedh Achievement" 
+            />
+          </div>
+        </Tilt>
 
-        <div className="flex justify-center items-center md:flex-row flex-col gap-8 mt-10">
-            <div className="hover:border-2  md:w-[39%] w-[80%] shadow-2xl hover:scale-105 transition rounded-2xl flex flex-col ">
-            <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh </p>
-            <img className="rounded-2xl " src="https://media.licdn.com/dms/image/v2/D4D22AQFZK3ADstE0AA/feedshare-shrink_2048_1536/B4DZXtXBroHsAo-/0/1743443995185?e=1768435200&v=beta&t=qBOGpqsjgpXK_kIya7MCW0AYXTWQG1g0YaHDjHBaqYM" alt="" />
-        </div><div className="hover:border-2 md:w-[39%] w-[80%] shadow-2xl hover:scale-105 transition  rounded-2xl flex flex-col ">
-            <p className="text-left font-semibold md:text-2xl bold m-2">TechFusion </p>
-            <img className="rounded-2xl h-full" src={img} alt="" />
-        </div>
-        </div>
+        {/* Right Side Certificate */}
+        <Tilt {...tiltOptions} className="md:w-[39%] w-[80%]">
+          <div className="hover:border-2 border shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden  hover:border-gray-900">
+            <p className="text-left font-semibold md:text-2xl bold m-2">TechFusion</p>
+            <img 
+              className="rounded-b-2xl aspect-[4/3] object-cover object-left" 
+              src={img} 
+              alt="TechFusion Winner" 
+            />
+          </div>
+        </Tilt>
+      </div>
+    </div>
     </div>
     </div>
     </>
