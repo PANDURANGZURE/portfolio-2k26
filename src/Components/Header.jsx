@@ -12,7 +12,7 @@ function Header() {
       }, []);
   return (
     <>
-    <div className='flex fixed top-0 justify-between w-screen px-20 py-5  z-50 no-mouse '>
+    <div data-aos="fade-up" className='flex fixed top-0 justify-between w-screen px-20 py-5  z-50 no-mouse '>
         <div data-aos="fade-right" className='font-bold text-3xl s '>Pandurang Zure</div>
         <div>
             <div data-aos="fade-left" className="flex items-center gap-2 backdrop-blur-2xl  border border-[#1f1f1f] px-4 py-2 rounded-full">
