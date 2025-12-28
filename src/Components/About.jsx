@@ -3,8 +3,19 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from "./Line";
 import { Code2, Award, Trophy } from "lucide-react";
+import Tilt from 'react-parallax-tilt';
 
 gsap.registerPlugin(ScrollTrigger);
+const tiltOptions = {
+    tiltMaxAngleX: 12,
+    tiltMaxAngleY: 12,
+    perspective: 1000,
+    scale: 1.05,
+    glareEnable: true,
+    glareMaxOpacity: 0.3,
+    glareBorderRadius: "16px",
+    transitionSpeed: 1500
+  };
 
 function About() {
   const boxRef = useRef(null);
@@ -84,7 +95,8 @@ function About() {
       {/* About content */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-28 mt-10 md:mt-16">
         {/* Avatar */}
-        <div className="flex-shrink-0">
+        <Tilt {...tiltOptions} className="">
+          <div className="flex-shrink-0">
           <div className="w-40 h-40 md:w-72 md:h-72 rounded-full border border-black flex items-center justify-center">
             <img
               src="https://pandurang-2k25.netlify.app/assets/pfp-_lj6DcG3.png"
@@ -93,6 +105,8 @@ function About() {
             />
           </div>
         </div>
+        </Tilt>
+        
 
         {/* Text */}
         <div className="text-center md:text-left max-w-2xl">
@@ -116,6 +130,7 @@ My goal is to build websites that are not only functional and efficient but also
       <section className="w-full px-4 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {stats.map((item, index) => (
+            <Tilt {...tiltOptions} className="">
             <div
               key={index}
               className="relative rounded-2xl border bg-white border-black/60 p-6 flex flex-col justify-between transition hover:shadow-2xl hover:scale-105"
@@ -135,6 +150,7 @@ My goal is to build websites that are not only functional and efficient but also
                 <p className="text-sm text-gray-700 mt-1">{item.desc}</p>
               </div>
             </div>
+            </Tilt>
           ))}
         </div>
       </section>
