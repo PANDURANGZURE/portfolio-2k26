@@ -42,3 +42,18 @@
 body{
   cursor: none;
 }
+
+@font-face {
+  font-family: 'Priestacy';
+  src: url('assets/fonts/priestacy.regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.s {
+  font-family: 'Priestacy', cursive;
+}
+
+.no-mouse {
+  pointer-events: none;
+}

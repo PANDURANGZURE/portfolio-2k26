@@ -5,6 +5,8 @@ import Hero from "../Components/Hero"
 import About from "../Components/About";
 import Showcase from "../Components/Showcase";
 import Achivements from "../Components/Achivements";
+import ContactForm from "../Components/Contact";
+import End from "../Components/End";
 
 function App() {
   return (
@@ -15,8 +17,9 @@ function App() {
     <About/>
     <Showcase/>
     <Achivements/>
-    <div className="h-screen"></div>
-    <Footer/>
+    <ContactForm/>
+    <End/>
+    
     </>
   );
 }
