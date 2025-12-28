@@ -3,6 +3,7 @@ import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { TbWorld } from 'react-icons/tb';
+import { IoIosArrowForward } from "react-icons/io";
 import Cursor from './Cursor';
 
 const ProjectDetails = () => {
@@ -18,20 +19,22 @@ const ProjectDetails = () => {
   return (
     <>
     <Cursor/>
-    <div className="max-w-7xl mx-auto p-6 md:p-12 font-sans animate-in fade-in duration-500">
+    <div className="max-w-7xl mx-auto p-6 md:p-12  animate-in fade-in duration-500">
       {/* Top Navigation */}
       <div className="flex items-center gap-4 mb-8 text-sm text-gray-500">
         <button onClick={() => navigate(-1)} className="border px-4 py-1 rounded-md hover:bg-gray-50 flex items-center gap-2">
           <HiArrowLeft /> Back
         </button>
-        <span>Projects &gt; {project.name}</span>
+        {/* <span className='flex justify-center items-center bold text-black text-xl'>Projects  <IoIosArrowForward className='text-2xl' /> <span className='text-bold bold'>{project.title}</span></span> */}
       </div>
+              <span className='flex  bold text-black text-lg mb-2'>Projects  <IoIosArrowForward className='text-2xl mt-1' /> <span className='font-bold bold text-orange-500'>{project.title}</span></span>
+
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Left Side: Info */}
         <div>
-          <h1 className="text-5xl font-bold mb-4 underline decoration-4 underline-offset-8 decoration-black">
-            {project.name}
+          <h1 className="text-5xl font-bold mb-4  decoration-4 bold decoration-black">
+            {project.title}
           </h1>
           <p className="text-gray-700 leading-relaxed mb-10 text-lg">
             {project.description || "Detailed project breakdown and implementation summary goes here."}
@@ -42,7 +45,7 @@ const ProjectDetails = () => {
             <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
               <div className="bg-gray-100 p-3 rounded-xl">&lt;/&gt;</div>
               <div>
-                <p className="text-xl font-bold">{project.technologies?.length || 0}</p>
+                <p className="text-xl font-bold">{project.tags?.length || 0}</p>
                 <p className="text-xs text-gray-400">Total Technologies</p>
               </div>
             </div>
@@ -68,9 +71,9 @@ const ProjectDetails = () => {
           {/* Tech Used Chips */}
           <div>
             <p className="text-sm font-bold mb-3">&lt;/&gt; Technologies Used</p>
-            <div className="flex gap-2 flex-wrap">
-              {project.technologies?.map((tech, i) => (
-                <span key={i} className="border px-4 py-1 rounded-lg text-sm bg-gray-50">&lt;/&gt; {tech}</span>
+            <div className="flex gap-2 flex-wrap normal">
+              {project.tags?.map((tech, i) => (
+                <span key={i} className="border px-4 py-1 rounded-lg text-sm normal bg-gray-50">&lt;/&gt; {tech}</span>
               ))}
             </div>
           </div>
