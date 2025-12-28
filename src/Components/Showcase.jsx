@@ -30,7 +30,7 @@ const tiltOptions = {
 
 const ProjectCard = ({ item }) => (
   <Tilt {...tiltOptions} className="">
-    <div className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
+    <div data-aos="fade-up" className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
     <Link 
   to={`/project/${item?.title?.toLowerCase().replace(/\s+/g, '-') || 'untitled'}`} 
   state={{ item }} // This passes the whole project object to the details page
@@ -62,7 +62,7 @@ const ProjectCard = ({ item }) => (
 
 const CertificateCard = ({ item }) => (
   <Tilt {...tiltOptions} className="">
-    <div className="flex flex-col items-center text-center group">
+    <div data-aos="fade-right" className="flex flex-col items-center text-center group">
     <div className="w-full rounded-lg shadow-md bg-[#1a1a1a] hover:shadow-2xl overflow-hidden mb-4 border border-gray-800 aspect-[4/3]">
       <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
     </div>
@@ -75,7 +75,7 @@ const CertificateCard = ({ item }) => (
 
 const SkillCard = ({ item }) => (
   <Tilt {...tiltOptions} className="">
-    <div className="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-2xl  hover:shadow-2xl  hover:bg-gray-50 transition-all group aspect-square bg-white shadow-sm">
+    <div data-aos="fade-left" className="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-2xl  hover:shadow-2xl  hover:bg-gray-50 transition-all group aspect-square bg-white shadow-sm">
     <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:rotate-12 transition-all duration-300">
       <img 
         src={item.image} 
@@ -101,7 +101,14 @@ function Showcase() {
   const [visibleCount, setVisibleCount] = useState(6);
   const boxRef = useRef(null);
 
-  
+  //aos
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,   // animation duration
+          once: true,       // animate only once
+          easing: "ease-in-out",
+        });
+      }, []);
 
   const fixUrl = (url) => {
     if (!url) return "";
@@ -187,13 +194,13 @@ function Showcase() {
   const btnBase = "flex-1 flex flex-col items-center justify-center py-4 px-2 border rounded-xl transition-all duration-300 active:scale-95";
 
   return (
-    <div className="min-h-screen bg-white pb-20 pt-10 px-4 overflow-hidden">
+    <div data-aos="fade-up" className="min-h-screen bg-white pb-20 pt-10 px-4 overflow-hidden">
       <div className=" mx-auto">
         <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 ">Portfolio Showcase</h2>
         <p className="text-lg md:text-xl text-center leading-relaxed bold text-black mb-">Explore my journey through <span className="text-orange-500">projects</span> , <span className="text-orange-500">certifications</span> and <span className="text-orange-500">technical expertise.</span> <br /> Each section represents a milestone in my continuous learning path.</p>
         <Line text="Showcase" />
         {/* Navigation */}
-        <div className="border mt-3 border-gray-300 rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl  mx-auto bg-white shadow-sm">
+        <div className="border mt-3 border-black rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl  mx-auto bg-white shadow-sm">
           <button onClick={() => setView('projects')} className={`${btnBase} ${view === 'projects' ? 'border-black bg-gray-50' : 'border-transparent text-gray-400'}`}>
             <HiCode size={24} className="mb-1" />
             <span className="text-sm font-semibold">Projects</span>
@@ -225,7 +232,7 @@ function Showcase() {
 
         {/* Actions */}
         {!loading && view !== 'skills' && data.length > 6 && (
-          <div className="mt-16 flex justify-center">
+          <div data-aos="fade-up" className="mt-16 flex justify-center">
             <button 
               onClick={() => setVisibleCount(visibleCount >= data.length ? 6 : data.length)}
               className="px-10 py-3 border-2 border-black rounded-xl font-bold transition-all hover:bg-black hover:text-white active:scale-95"

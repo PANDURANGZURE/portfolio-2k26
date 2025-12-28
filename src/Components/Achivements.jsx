@@ -4,6 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from './Line'
 import img from '../assets/achiv.png'
 import Tilt from 'react-parallax-tilt';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -35,11 +37,19 @@ function Achivements() {
     });
   }, []);
 
+  useEffect(() => {
+        AOS.init({
+          duration: 1000,   // animation duration
+          once: true,       // animate only once
+          easing: "ease-in-out",
+        });
+      }, []);
+
   return (
     <>
     <>
     <div>
-        <div className="overflow-hidden">
+        <div data-aos="fade-up" className="overflow-hidden">
         <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 mt-10 "> Recognized for skills and efforts</h2>
                 <p className="text-lg md:text-xl text-center leading-relaxed bold text-black mt-5">A distinguished achievement representing top-tier performance within the <span className="text-orange-500">district</span>. <br />
                  This recognition honors exceptional technical skill and leadership, awarded for outperforming a broad field of regional <br />competitors through innovative problem-solving and dedicated effort. <span className="text-orange-500">For Project Agro-Connect</span></p>
@@ -52,7 +62,7 @@ function Achivements() {
       {/* 1. Main Wide Certificate */}
       <div className="flex justify-center">
         <Tilt {...tiltOptions} className="w-[80%]">
-          <div className="hover:border-2 rounded-2xl flex flex-col hover:shadow-2xl transition bg-white overflow-hidden border border-gray-900">
+          <div data-aos="fade-up" className="hover:border-2 rounded-2xl flex flex-col hover:shadow-2xl transition bg-white overflow-hidden border border-gray-900">
             <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh</p>
             <img 
               className="rounded-b-2xl h-[50%] object-cover object-left" 
@@ -68,7 +78,7 @@ function Achivements() {
         
         {/* Left Side Certificate */}
         <Tilt {...tiltOptions} className="md:w-[39%] w-[80%]">
-          <div className=" border-gray-900 hover:border-2 shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden border border-gray-900">
+          <div data-aos="fade-up" className=" border-gray-900 hover:border-2 shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden border border-gray-900">
             <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh</p>
             <img 
               className="rounded-b-2xl aspect-[4/3]  object-cover object-left" 
@@ -80,7 +90,7 @@ function Achivements() {
 
         {/* Right Side Certificate */}
         <Tilt {...tiltOptions} className="md:w-[39%] w-[80%]">
-          <div className="hover:border-2 border shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden  hover:border-gray-900">
+          <div data-aos="fade-up" className="hover:border-2 border shadow-2xl transition rounded-2xl flex flex-col bg-white overflow-hidden  hover:border-gray-900">
             <p className="text-left font-semibold md:text-2xl bold m-2">TechFusion</p>
             <img 
               className="rounded-b-2xl aspect-[4/3] object-cover object-left" 
