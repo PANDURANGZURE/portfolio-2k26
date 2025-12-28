@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import { Github, Linkedin, Instagram, ArrowUpRight } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 function End() {
+  //aos
+    useEffect(() => {
+        AOS.init({
+          duration: 1000,   // animation duration
+          once: true,       // animate only once
+          easing: "ease-in-out",
+        });
+      }, []);
   return (
     <>
      <div className="flex justify-center items-center my-10 md:my-20 text-black">
-        <p className="s text-black md:text-9xl text-5xl">Pandurang Zure</p>
+        <p data-aos="fade-up" className="s text-black md:text-9xl text-5xl">Pandurang Zure</p>
     </div>
-     <footer className="w-full  px-6 py-10">
+     <footer  data-aos="fade-up" className="w-full  px-6 py-10">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
 
         {/* Left Section */}

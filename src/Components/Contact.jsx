@@ -94,10 +94,10 @@ export default function ContactForm() {
     </form>
     <div className="flex justify-center items-center">
         <div className="w-screen flex flex-col items-center   font-extrabold justify-center mt-10 ">
-            <p className=" uppercase text-4xl bold mb-10">let's build something awesome together</p>
+            <p data-aos="fade-right" className=" uppercase text-4xl bold mb-10">let's build something awesome together</p>
             {/* <Line text='Lets Build'/> */}
-            <a href="mailto:pandurangzure3112@gmail.com"><p className=" uppercase   md:text-7xl">pandurangzure3112@gmail.com</p></a>
-            <Line text='Lets Build'/>
+            <a data-aos="fade-left" href="mailto:pandurangzure3112@gmail.com"><p className=" uppercase   md:text-7xl">pandurangzure3112@gmail.com</p></a>
+            <Line  text='Lets Build'/>
         </div>
     </div>
    
