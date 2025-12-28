@@ -4,6 +4,7 @@ import Footer from "../Components/Footer";
 import Hero from "../Components/Hero"
 import About from "../Components/About";
 import Showcase from "../Components/Showcase";
+import Achivements from "../Components/Achivements";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
     <Hero/>
     <About/>
     <Showcase/>
+    <Achivements/>
     <div className="h-screen"></div>
     <Footer/>
     </>
