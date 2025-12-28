@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { TbWorld } from 'react-icons/tb';
-import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import Cursor from './Cursor';
 
 const ProjectDetails = () => {
@@ -11,93 +11,149 @@ const ProjectDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Get data passed from the Link state, or fallback
+  // Get data passed from the Link state
   const project = location.state?.item;
+
+  // 1. State to track which image is currently showing
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!project) return <div className="p-20 text-center">Project details not found.</div>;
 
+  // 2. Logic to handle switching
+  const nextImage = () => {
+    setCurrentIndex((prev) => (prev + 1) % project.images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentIndex((prev) => (prev === 0 ? project.images.length - 1 : prev - 1));
+  };
+
   return (
     <>
-    <Cursor/>
-    <div className="max-w-7xl mx-auto p-6 md:p-12  animate-in fade-in duration-500">
-      {/* Top Navigation */}
-      <div className="flex items-center gap-4 mb-8 text-sm text-gray-500">
-        <button onClick={() => navigate(-1)} className="border px-4 py-1 rounded-md hover:bg-gray-50 flex items-center gap-2">
-          <HiArrowLeft /> Back
-        </button>
-        {/* <span className='flex justify-center items-center bold text-black text-xl'>Projects  <IoIosArrowForward className='text-2xl' /> <span className='text-bold bold'>{project.title}</span></span> */}
-      </div>
-              <span className='flex  bold text-black text-lg mb-2'>Projects  <IoIosArrowForward className='text-2xl mt-1' /> <span className='font-bold bold text-orange-500'>{project.title}</span></span>
+      <Cursor />
+      <div className="max-w-7xl mx-auto p-6 md:p-12 animate-in fade-in duration-500">
+        {/* Top Navigation */}
+        <div className="flex items-center gap-4 mb-8 text-sm text-gray-500">
+          <button 
+            onClick={() => navigate(-1)} 
+            className="border px-4 py-1 rounded-md hover:bg-gray-50 flex items-center gap-2 transition-colors"
+          >
+            <HiArrowLeft /> Back
+          </button>
+        </div>
 
+        <span className='flex bold text-black text-lg mb-2'>
+          Projects <IoIosArrowForward className='text-2xl mt-1' /> 
+          <span className='font-bold bold text-orange-500 ml-1'>{project.title}</span>
+        </span>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        {/* Left Side: Info */}
-        <div>
-          <h1 className="text-5xl font-bold mb-4  decoration-4 bold decoration-black">
-            {project.title}
-          </h1>
-          <p className="text-gray-700 leading-relaxed mb-10 text-lg">
-            {project.description || "Detailed project breakdown and implementation summary goes here."}
-          </p>
-
-          {/* Stats Boxes */}
-          <div className="flex gap-4 mb-10">
-            <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
-              <div className="bg-gray-100 p-3 rounded-xl">&lt;/&gt;</div>
-              <div>
-                <p className="text-xl font-bold">{project.tags?.length || 0}</p>
-                <p className="text-xs text-gray-400">Total Technologies</p>
-              </div>
-            </div>
-            <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
-              <div className="bg-gray-100 p-3 rounded-xl">☰</div>
-              <div>
-                <p className="text-xl font-bold">{project.features?.length || 0}</p>
-                <p className="text-xs text-gray-400">Key Features</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex gap-4 mb-10">
-            <a href={project.github} className="flex items-center gap-2 border px-6 py-2 rounded-xl font-bold hover:bg-gray-50">
-              <FaGithub /> Github
-            </a>
-            <a href={project.preview} className="flex items-center gap-2 border px-6 py-2 rounded-xl font-bold hover:bg-gray-50">
-              <TbWorld /> Live Demo
-            </a>
-          </div>
-
-          {/* Tech Used Chips */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Left Side: Info */}
           <div>
-            <p className="text-sm font-bold mb-3">&lt;/&gt; Technologies Used</p>
-            <div className="flex gap-2 flex-wrap normal">
-              {project.tags?.map((tech, i) => (
-                <span key={i} className="border px-4 py-1 rounded-lg text-sm normal bg-gray-50">&lt;/&gt; {tech}</span>
+            <h1 className="text-5xl font-bold bold mb-4 decoration-black">{project.title}</h1>
+            <p className="text-gray-900 leading-relaxed mb-10 text-lg normal">
+              {project.description || "Detailed project breakdown and implementation summary goes here."}
+            </p>
+
+            {/* Stats Boxes */}
+            <div className="flex gap-4 mb-10">
+              <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
+                <div className="bg-gray-100 p-3 rounded-xl">&lt;/&gt;</div>
+                <div>
+                  <p className="text-xl font-bold">{project.tags?.length || 0}</p>
+                  <p className="text-xs  bold">Total Technologies</p>
+                </div>
+              </div>
+              <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
+                <div className="bg-gray-100 p-3 rounded-xl">☰</div>
+                <div>
+                  <p className="text-xl  font-bold">{project.features?.length || 0}</p>
+                  <p className="text-xs bold ">Key Features</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-4 mb-10">
+              <a href={project.github} target="_blank" rel="noreferrer" className="flex items-center gap-2 border px-6 py-2 rounded-xl font-bold hover:bg-gray-900 hover:text-white transition-all">
+                <FaGithub /> Github
+              </a>
+              <a href={project.preview} target="_blank" rel="noreferrer" className="flex items-center gap-2 bg-black text-white px-6 py-2 rounded-xl font-bold hover:bg-gray-800 transition-all">
+                <TbWorld /> Live Demo
+              </a>
+            </div>
+
+            {/* Tech Used Chips */}
+            <div>
+              <p className="text-sm bold font-bold mb-3">&lt;/&gt; Technologies Used</p>
+              <div className="flex gap-2 flex-wrap">
+                {project.tags?.map((tech, i) => (
+                  <span key={i} className="border normal px-4 py-1 rounded-lg text-sm bg-gray-50 text-gray-700">
+                    &lt;/&gt; {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Side: Media & Features */}
+          <div className="flex flex-col gap-6">
+            {/* Main Image Switcher */}
+            <div className="relative group w-full aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
+              <img 
+                src={project.images[currentIndex]} 
+                alt={project.title} 
+                className="w-full h-full object- transition-all duration-700 ease-in-out" 
+              />
+              
+              {/* Overlay Navigation (Only shows if there are multiple images) */}
+              {project.images?.length > 1 && (
+                <>
+                  <button 
+                    onClick={prevImage}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                  >
+                    <IoIosArrowBack size={24} />
+                  </button>
+                  <button 
+                    onClick={nextImage}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 backdrop-blur-md p-2 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity shadow-lg"
+                  >
+                    <IoIosArrowForward size={24} />
+                  </button>
+                </>
+              )}
+            </div>
+
+            {/* Thumbnails Gallery */}
+            <div className="flex gap-3 overflow-x-auto py-2">
+              {project.images?.map((img, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all 
+                    ${currentIndex === index ? 'border-orange-500 scale-105 shadow-md' : 'border-transparent opacity-60 hover:opacity-100'}`}
+                >
+                  <img src={img} className="w-full h-full object-cover" alt={`view-${index}`} />
+                </button>
               ))}
             </div>
-          </div>
-        </div>
 
-        {/* Right Side: Media & Features */}
-        <div className="flex flex-col gap-8">
-          <div className="w-full aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
-            <img src={project.image} alt={project.name} className="w-full h-full object-cover" />
-          </div>
-
-          <div className="border rounded-3xl p-8">
-            <h3 className="text-2xl font-bold mb-6">Key Features</h3>
-            <ul className="space-y-4 text-gray-600">
-              {project.features?.map((feature, i) => (
-                <li key={i} className="flex items-start gap-2">
-                  <span className="font-bold text-black">•</span> {feature}
-                </li>
-              )) || <li>No features listed for this project.</li>}
-            </ul>
+            {/* Features List */}
+            <div className="border rounded-3xl p-8 bg-white/50">
+              <h3 className="text-2xl font-bold mb-6 bold">Key Features</h3>
+              <ul className="space-y-4 text-gray-600">
+                {project.features?.map((feature, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="mt-1.5 h-2 w-2 rounded-full bg-orange-500 flex-shrink-0" /> 
+                    <span className='bold'>{feature}</span>
+                  </li>
+                )) || <li>No features listed for this project.</li>}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 };
