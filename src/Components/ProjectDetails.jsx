@@ -1,25 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { HiArrowLeft } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { TbWorld } from 'react-icons/tb';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { BsCalendarDate } from "react-icons/bs"
 import Cursor from './Cursor';
+
+
 
 const ProjectDetails = () => {
   const { id } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   
-  // Get data passed from the Link state
+  // Get current project data passed from the Link state
   const project = location.state?.item;
 
-  // 1. State to track which image is currently showing
+  // State to track which image is currently showing
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  if (!project) return <div className="p-20 text-center">Project details not found.</div>;
+  // Reset the image index whenever the project ID changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [id]);
 
-  // 2. Logic to handle switching
+  if (!project) {
+    return (
+      <div className="p-20 text-center">
+        <h2 className="text-2xl font-bold">Project details not found.</h2>
+        <button onClick={() => navigate('/projects')} className="mt-4 text-orange-500">
+          Back to Projects
+        </button>
+      </div>
+    );
+  }
+
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % project.images.length);
   };
@@ -42,17 +58,17 @@ const ProjectDetails = () => {
           </button>
         </div>
 
-        <span className='flex bold text-black text-lg mb-2'>
+        <span className='flex font-bold text-black text-lg mb-2 bold'>
           Projects <IoIosArrowForward className='text-2xl mt-1' /> 
-          <span className='font-bold bold text-orange-500 ml-1'>{project.title}</span>
+          <span className='text-orange-500 bold ml-1'>{project.title}</span>
         </span>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side: Info */}
           <div>
-            <h1 className="text-5xl font-bold bold mb-4 decoration-black">{project.title}</h1>
-            <p className="text-gray-900 leading-relaxed mb-10 text-lg normal">
-              {project.description || "Detailed project breakdown and implementation summary goes here."}
+            <h1 className="text-5xl font-bold bold mb-4">{project.title}</h1>
+            <p className="text-gray-900 leading-relaxed normal mb-10 text-lg">
+              {project.description || "description missing"}
             </p>
 
             {/* Stats Boxes */}
@@ -61,14 +77,14 @@ const ProjectDetails = () => {
                 <div className="bg-gray-100 p-3 rounded-xl">&lt;/&gt;</div>
                 <div>
                   <p className="text-xl font-bold">{project.tags?.length || 0}</p>
-                  <p className="text-xs  bold">Total Technologies</p>
+                  <p className="text-xs bold font-bold">Total Technologies</p>
                 </div>
               </div>
               <div className="border rounded-2xl p-4 flex items-center gap-4 flex-1">
-                <div className="bg-gray-100 p-3 rounded-xl">☰</div>
+                <div className="bg-gray-100 p-3 rounded-xl"><BsCalendarDate/></div>
                 <div>
-                  <p className="text-xl  font-bold">{project.features?.length || 0}</p>
-                  <p className="text-xs bold ">Key Features</p>
+                  <p className="text-xl font-bold">{project.date}</p>
+                  <p className="text-xs bold font-bold">Made in Year</p>
                 </div>
               </div>
             </div>
@@ -85,7 +101,7 @@ const ProjectDetails = () => {
 
             {/* Tech Used Chips */}
             <div>
-              <p className="text-sm bold font-bold mb-3">&lt;/&gt; Technologies Used</p>
+              <p className="text-sm font-bold bold mb-3">&lt;/&gt; Technologies Used</p>
               <div className="flex gap-2 flex-wrap">
                 {project.tags?.map((tech, i) => (
                   <span key={i} className="border normal px-4 py-1 rounded-lg text-sm bg-gray-50 text-gray-700">
@@ -98,15 +114,13 @@ const ProjectDetails = () => {
 
           {/* Right Side: Media & Features */}
           <div className="flex flex-col gap-6">
-            {/* Main Image Switcher */}
             <div className="relative group w-full aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={project.images[currentIndex]} 
                 alt={project.title} 
-                className="w-full h-full object- transition-all duration-700 ease-in-out" 
+                className="w-full h-full  transition-all duration-700 ease-in-out" 
               />
               
-              {/* Overlay Navigation (Only shows if there are multiple images) */}
               {project.images?.length > 1 && (
                 <>
                   <button 
@@ -137,19 +151,6 @@ const ProjectDetails = () => {
                   <img src={img} className="w-full h-full object-cover" alt={`view-${index}`} />
                 </button>
               ))}
-            </div>
-
-            {/* Features List */}
-            <div className="border rounded-3xl p-8 bg-white/50">
-              <h3 className="text-2xl font-bold mb-6 bold">Key Features</h3>
-              <ul className="space-y-4 text-gray-600">
-                {project.features?.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-1.5 h-2 w-2 rounded-full bg-orange-500 flex-shrink-0" /> 
-                    <span className='bold'>{feature}</span>
-                  </li>
-                )) || <li>No features listed for this project.</li>}
-              </ul>
             </div>
           </div>
         </div>

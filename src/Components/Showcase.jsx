@@ -24,9 +24,9 @@ const ProjectCard = ({ item }) => (
 >
   <div className="flex flex-col">
     <div className="w-full aspect-video bg-gray-100 rounded-2xl mb-4 overflow-hidden ">
-      <img src={item.image} alt={item.title} className="w-full h-full object-cover " />
+      <img src={item.image} alt={item.title} className="w-full h-full object- " />
     </div>
-    <h3 className="text-xl font-bold bold mb-2">{item.title}</h3>
+    <h3 className="text-xl font-bold bold ">{item.title}</h3><p className="mb-2 text-gray-800">{item.date}</p>
     <p className="text-sm text-gray-700 leading-tight mb-6 normal flex-grow">{item.description}</p>
   </div>
 </Link>
@@ -35,9 +35,11 @@ const ProjectCard = ({ item }) => (
       <a href={item.preview || item.link} target="_blank" rel="noreferrer" className="text-orange-500 text-sm font-medium flex items-center gap-1 hover:underline">
         Preview <FiExternalLink/>
       </a>
-      
-      
-  Details<MdOutlineReadMore size={30} />
+  <Link 
+  to={`/project/${item?.title?.toLowerCase().replace(/\s+/g, '-') || 'untitled'}`} 
+  state={{ item }} // This passes the whole project object to the details page
+  className="text-black text-sm font-medium flex items-center gap-1 hover:underline"
+>Details</Link>
     </div>
   </div>
 );
