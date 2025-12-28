@@ -9,14 +9,26 @@ import { FiExternalLink } from "react-icons/fi";
 import { MdOutlineReadMore } from "react-icons/md";
 import Line from "./Line"
 import { Link } from 'react-router-dom';
+import Tilt from 'react-parallax-tilt';
 
 gsap.registerPlugin(ScrollTrigger);
 
 // --- SUB-COMPONENTS ---
 
+const tiltOptions = {
+    tiltMaxAngleX: 12,
+    tiltMaxAngleY: 12,
+    perspective: 1000,
+    scale: 1.05,
+    glareEnable: true,
+    glareMaxOpacity: 0.3,
+    glareBorderRadius: "16px",
+    transitionSpeed: 1500
+  };
+
 const ProjectCard = ({ item }) => (
-  
-  <div className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
+  <Tilt {...tiltOptions} className="">
+    <div className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
     <Link 
   to={`/project/${item?.title?.toLowerCase().replace(/\s+/g, '-') || 'untitled'}`} 
   state={{ item }} // This passes the whole project object to the details page
@@ -42,20 +54,26 @@ const ProjectCard = ({ item }) => (
 >Details</Link>
     </div>
   </div>
+  </Tilt>
+  
 );
 
 const CertificateCard = ({ item }) => (
-  <div className="flex flex-col items-center text-center group">
+  <Tilt {...tiltOptions} className="">
+    <div className="flex flex-col items-center text-center group">
     <div className="w-full rounded-lg shadow-md bg-[#1a1a1a] hover:shadow-2xl overflow-hidden mb-4 border border-gray-800 aspect-[4/3]">
       <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
     </div>
     <h3 className="text-lg md:text-xl font-bold bold text-gray-900 leading-tight px-2">{item.title}</h3>
     <p className="text-md font-medium mt-1 text-gray-500 uppercase normal tracking-wide">{item.issuer}</p>
   </div>
+  </Tilt>
+  
 );
 
 const SkillCard = ({ item }) => (
-  <div className="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-2xl  hover:shadow-2xl  hover:bg-gray-50 transition-all group aspect-square bg-white shadow-sm">
+  <Tilt {...tiltOptions} className="">
+    <div className="flex flex-col items-center justify-center p-4 border border-gray-200 rounded-2xl  hover:shadow-2xl  hover:bg-gray-50 transition-all group aspect-square bg-white shadow-sm">
     <div className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center hover:rotate-12 transition-all duration-300">
       <img 
         src={item.image} 
@@ -68,6 +86,8 @@ const SkillCard = ({ item }) => (
       {item.name}
     </span>
   </div>
+  </Tilt>
+  
 );
 
 // --- MAIN COMPONENT ---
@@ -98,6 +118,19 @@ function Showcase() {
       },
     });
   }, []);
+
+  
+
+      const tiltOptions = {
+      tiltMaxAngleX: 12,
+      tiltMaxAngleY: 12,
+      perspective: 1000,
+      scale: 1.05,
+      glareEnable: true,
+      glareMaxOpacity: 0.3,
+      glareBorderRadius: "16px",
+      transitionSpeed: 1500
+    };
 
   useEffect(() => {
     const fetchData = async () => {
