@@ -6,6 +6,8 @@ import { TbWorld } from 'react-icons/tb';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { BsCalendarDate } from "react-icons/bs"
 import Cursor from './Cursor';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
@@ -24,6 +26,15 @@ const ProjectDetails = () => {
   useEffect(() => {
     setCurrentIndex(0);
   }, [id]);
+
+  //aos
+      useEffect(() => {
+          AOS.init({
+            duration: 2000,   // animation duration
+            once: true,       // animate only once
+            easing: "ease-in-out",
+          });
+        }, []);
 
   if (!project) {
     return (
@@ -47,7 +58,7 @@ const ProjectDetails = () => {
   return (
     <>
       <Cursor />
-      <div className="max-w-7xl mx-auto p-6 md:p-12 animate-in fade-in duration-500">
+      <div data-aos="fade-up" className="max-w-7xl mx-auto p-6 md:p-12 animate-in fade-in duration-500">
         {/* Top Navigation */}
         <div className="flex items-center gap-4 mb-8 text-sm text-gray-500">
           <button 
@@ -65,7 +76,7 @@ const ProjectDetails = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Side: Info */}
-          <div>
+          <div data-aos="fade-right">
             <h1 className="text-5xl font-bold bold mb-4">{project.title}</h1>
             <p className="text-gray-900 leading-relaxed normal mb-10 text-lg">
               {project.description || "description missing"}
@@ -113,7 +124,7 @@ const ProjectDetails = () => {
           </div>
 
           {/* Right Side: Media & Features */}
-          <div className="flex flex-col gap-6">
+          <div data-aos="fade-left" className="flex flex-col gap-6">
             <div className="relative group w-full aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl">
               <img 
                 src={project.images[currentIndex]} 
