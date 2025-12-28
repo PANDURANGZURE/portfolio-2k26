@@ -20,7 +20,7 @@ function Hero() {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,   // animation duration
+      duration: 3000,   // animation duration
       once: true,       // animate only once
       easing: "ease-in-out",
     });
@@ -70,6 +70,10 @@ function Hero() {
     };
     
   }, []);
+
+  useEffect(() => {
+    AOS.refreshHard();
+  }, [location.pathname]);
 
   return (
     <>
