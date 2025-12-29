@@ -1,6 +1,6 @@
 import Cursor from "../Components/Cursor";
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
+
 import Hero from "../Components/Hero"
 import About from "../Components/About";
 import Showcase from "../Components/Showcase";
@@ -11,7 +11,8 @@ import End from "../Components/End";
 function App() {
   return (
     <>
-    <Cursor/>
+    <div className="h-screen w-screen">
+      <Cursor/>
     <Header/>
     <Hero/>
     <About/>
@@ -19,6 +20,7 @@ function App() {
     <Achivements/>
     <ContactForm/>
     <End/>
+    </div>
     
     </>
   );

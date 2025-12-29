@@ -77,8 +77,8 @@ function Hero() {
 
   return (
     <>
-    <div data-aos="fade-up" className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden pointer-events-none   '>
-    <div   className='flex justify-between mt-5'>
+    <div   className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden pointer-events-none   '>
+    <div    className='flex justify-between mt-5'>
       <div className='flex items-center space-x-4'>
         <img
           ref={img1Ref}
