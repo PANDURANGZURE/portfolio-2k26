@@ -20,7 +20,7 @@ function Hero() {
 
   useEffect(() => {
     AOS.init({
-      duration: 3000,   // animation duration
+      duration: 1000,   // animation duration
       once: true,       // animate only once
       easing: "ease-in-out",
     });
@@ -77,7 +77,7 @@ function Hero() {
 
   return (
     <>
-    <div   className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden pointer-events-none   '>
+    <div   className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden    '>
     <div    className='flex justify-between mt-5'>
       <div className='flex items-center space-x-4'>
         <img

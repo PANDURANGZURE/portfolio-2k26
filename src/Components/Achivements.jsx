@@ -49,8 +49,8 @@ function Achivements() {
     <>
     <>
     <div>
-        <div data-aos="fade-up" className="overflow-hidden">
-        <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 mt-10 "> Recognized for skills and efforts</h2>
+        <div data-aos="fade-up" className="overflow-hidden ">
+        <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 mt-20 "> Recognized for skills and efforts</h2>
                 <p className="text-lg md:text-xl text-center leading-relaxed bold text-black mt-5">A distinguished achievement representing top-tier performance within the <span className="text-orange-500">district</span>. <br />
                  This recognition honors exceptional technical skill and leadership, awarded for outperforming a broad field of regional <br />competitors through innovative problem-solving and dedicated effort. <span className="text-orange-500">For Project Agro-Connect</span></p>
                 <Line text="Achivements" />
