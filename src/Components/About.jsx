@@ -100,7 +100,7 @@ function About() {
       <p
       
         ref={boxRef}
-        className="text-3xl md:text-6xl font-bold bold text-center"
+        className="text-4xl md:text-6xl font-bold bold text-center"
       >
         About Me
       </p>
@@ -108,15 +108,15 @@ function About() {
       <Line text="Who am I" />
 
       {/* About content */}
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-28 mt-10 md:mt-16">
+      <div className=" mx-auto flex flex-col md:flex-row items-center md:gap-28 mt-10 md:mt-16">
         {/* Avatar */}
         <Tilt {...tiltOptions} className="">
-          <div data-aos="fade-right" className="flex-shrink-0">
-          <div className="w-40 h-40 md:w-72 md:h-72 rounded-full border border-black flex items-center justify-center">
+          <div data-aos="fade-right" className="flex-shrink-0 ">
+          <div className="w-[100%]  md:w-72 md:h-72 rounded-full  border-black flex items-center justify-center">
             <img
               src="https://pandurang-2k25.netlify.app/assets/pfp-_lj6DcG3.png"
               alt="Avatar"
-              className="w-32 h-32 md:w-72 md:h-72 rounded-full object-cover grayscale hover:grayscale-0 transition hover:rotate-12"
+              className="w-[80%]   md:w-72 md:h-72 rounded-full object-cover grayscale hover:grayscale-0 transition hover:rotate-12"
             />
           </div>
         </div>
@@ -125,7 +125,7 @@ function About() {
 
         {/* Text */}
         <div data-aos="fade-left" className="text-center md:text-left max-w-2xl">
-          <p className="text-lg md:text-xl leading-relaxed bold text-black">
+          <p className="text-lg md:text-xl leading-relaxed bold text-black p-2">
             I'm a{" "}
             <span className="text-orange-500 font-semibold">
               Web Developer
