@@ -79,7 +79,7 @@ function Hero() {
     <>
     <div   className='w-screen h-screen flex flex-col justify-center p-5 overflow-hidden    '>
     <div    className='flex justify-between mt-5'>
-      <div className='flex items-center space-x-4'>
+      <div className='flex items-center md:space-x-4'>
         <img
           ref={img1Ref}
           className='md:h-34 h-20 fade-scale slide-left '
@@ -97,18 +97,18 @@ function Hero() {
         />
       </div>
       <div ref={arrowRef} className='fade-scale' style={{ transform: 'rotate(0deg)', willChange: 'transform' }}>
-        <a href="mailto:pandurangzure3112@gmail.com"><MdOutlineArrowOutward className='md:text-9xl text-7xl hover:rotate-12' /></a>
+        <a className='md:block hidden' href="mailto:pandurangzure3112@gmail.com"><MdOutlineArrowOutward className='md:text-9xl text-7xl hover:rotate-12' /></a>
       </div>
     </div>
     <div>
-      <p data-aos="fade-right" className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p data-aos="fade-up"  className='md:text-7xl text-5xl bold font-semibold  md:mt-5 mt-8'>Pandurang Zure. </p>
+      <p data-aos="fade-right" className='bold md:text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
+    <p data-aos="fade-up"  className='md:text-7xl text-4xl bold font-semibold  md:mt-5 mt-8'>Pandurang Zure. </p>
     </div>
     <div>
-      <p data-aos="fade-right" className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
+      <p data-aos="fade-right" className='bold md:text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
     <p data-aos="fade-up" className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5 '>FRONTEND DEVLOPER </p>
     </div>
-    <p data-aos="fade-left" className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
+    <p data-aos="fade-left" className='bold  md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
     <div  className="flex text-center space-x-8 m-3 icons">
               <a data-aos="zoom-out" href="https://github.com/PANDURANGZURE" target="_blank" rel="noopener noreferrer" className="icon hover:text-gray-800 transition">
                 <Github size={38} />
@@ -121,7 +121,7 @@ function Hero() {
               </a>
             </div>
     <div className='flex justify-end text-right'>
-      <p ref={boxRef} className='bold md:text-lg justify-end mt-10 text-right slide-right pr-20 '>
+      <p ref={boxRef} className='bold md:text-lg justify-end md:mt-16 mt-24 text-right slide-right pr-20 '>
         My <span  className=' text-orange-500'>goal</span> is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
         I pay close attention to design aesthetics and usability,<br/> ensuring that each project is both visually striking and seamless to navigate.
       </p>

@@ -23,7 +23,7 @@ function Header() {
         <div>
             <div data-aos="fade-left" className="flex items-center gap-2 backdrop-blur-2xl  border border-[#1f1f1f] px-4 py-2 rounded-full">
           <span className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
-          <span className="md:text-sm bold ">
+          <span className="md:text-sm text-[8px] bold ">
             Available for new projects
           </span>
         </div>
