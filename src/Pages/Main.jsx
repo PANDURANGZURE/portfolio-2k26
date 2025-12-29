@@ -14,7 +14,7 @@ function App() {
       <Cursor/>
     <Header/>
     <Hero/>
-    <Aboaut/>
+    <About/>
     <Showcase/>
     <Achivements/>
     <ContactForm/>
