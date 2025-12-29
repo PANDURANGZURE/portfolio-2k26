@@ -97,16 +97,16 @@ function Hero() {
         />
       </div>
       <div ref={arrowRef} className='fade-scale' style={{ transform: 'rotate(0deg)', willChange: 'transform' }}>
-        <MdOutlineArrowOutward className='md:text-9xl text-7xl hover:rotate-12' />
+        <a href="mailto:pandurangzure3112@gmail.com"><MdOutlineArrowOutward className='md:text-9xl text-7xl hover:rotate-12' /></a>
       </div>
     </div>
     <div>
       <p data-aos="fade-right" className='bold text-xl mt-2 absolute'> Hello, <span className='normal text-orange-500'>I'm</span></p>
-    <p data-aos="fade-up"  className='md:text-7xl text-5xl bold  md:mt-5 mt-8'>PANDURANG ZURE </p>
+    <p data-aos="fade-up"  className='md:text-7xl text-5xl bold font-semibold  md:mt-5 mt-8'>Pandurang Zure. </p>
     </div>
     <div>
       <p data-aos="fade-right" className='bold text-xl  absolute '>I'm<span className='normal text-orange-500'> a</span></p>
-    <p data-aos="fade-up" className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5'>FRONTEND DEVLOPER </p>
+    <p data-aos="fade-up" className='md:text-8xl text-5xl bold font-extrabold md:mt-3 mt-5 '>FRONTEND DEVLOPER </p>
     </div>
     <p data-aos="fade-left" className='bold text-xl md:text-2xl  mt-5 '>Running on <span className=' normal font-extrabold text-2xl text-orange-500'>8 GB </span>RAM, fueled by unlimited ambition.</p>
     <div  className="flex text-center space-x-8 m-3 icons">
