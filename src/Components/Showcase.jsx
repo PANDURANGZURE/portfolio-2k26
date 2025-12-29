@@ -197,7 +197,7 @@ function Showcase() {
     <div data-aos="fade-up" className="min-h-screen bg-white pb-20 pt-10 px-4 overflow-hidden">
       <div className=" mx-auto">
         <h2 ref={boxRef} className="text-4xl md:text-6xl bold font-bold text-center mb-3 ">Portfolio Showcase</h2>
-        <p className="text-lg md:text-xl text-center leading-relaxed bold text-black mb-">Explore my journey through <span className="text-orange-500">projects</span> , <span className="text-orange-500">certifications</span> and <span className="text-orange-500">technical expertise.</span> <br /> Each section represents a milestone in my continuous learning path.</p>
+        <p className="text-xs md:text-xl text-center leading-relaxed bold text-black mb-">Explore my journey through <span className="text-orange-500">projects</span> , <span className="text-orange-500">certifications</span> and <span className="text-orange-500">technical expertise.</span> <br /> Each section represents a milestone in my continuous learning path.</p>
         <Line text="Showcase" />
         {/* Navigation */}
         <div className="border mt-3 border-black rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl  mx-auto bg-white shadow-sm">
