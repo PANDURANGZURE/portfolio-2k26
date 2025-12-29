@@ -96,7 +96,7 @@ function About() {
   ];
 
   return (
-    <section data-aos="fade-up" className="flex flex-col items-center justify-center mb-10">
+    <section data-aos="fade-up" className="flex flex-col items-center w-screen justify-center mb-10">
       <p
       
         ref={boxRef}

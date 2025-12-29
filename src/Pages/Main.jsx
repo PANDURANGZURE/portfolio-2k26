@@ -11,7 +11,6 @@ import End from "../Components/End";
 function App() {
   return (
     <>
-    <div className="h-screen w-screen">
       <Cursor/>
     <Header/>
     <Hero/>
@@ -19,8 +18,7 @@ function App() {
     <Showcase/>
     <Achivements/>
     <ContactForm/>
-    <End/>
-    </div>
+    <End/> 
     
     </>
   );
