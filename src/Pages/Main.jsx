@@ -7,6 +7,7 @@ import Showcase from "../Components/Showcase";
 import Achivements from "../Components/Achivements";
 import ContactForm from "../Components/Contact";
 import End from "../Components/End";
+import { Helmet } from "react-helmet-async";
 
 function App() {
   return (
