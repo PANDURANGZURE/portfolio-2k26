@@ -13,81 +13,157 @@ export default function InfiniteLine(props) {
         }}
       >
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
         <span>{props.text}</span>
+        •
       </motion.div>
     </div>
   );

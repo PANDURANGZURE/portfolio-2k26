@@ -7,6 +7,7 @@ import Showcase from "../Components/Showcase";
 import Achivements from "../Components/Achivements";
 import ContactForm from "../Components/Contact";
 import End from "../Components/End";
+import Education from "../Components/Education";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
     <Header/>
     <Hero/>
     <About/>
+    <Education/>
     <Showcase/>
     <Achivements/>
     <ContactForm/>
