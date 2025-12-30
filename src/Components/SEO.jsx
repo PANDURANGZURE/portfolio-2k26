@@ -48,8 +48,8 @@ export default function SEO() {
             name: "Freelance",
           },
           sameAs: [
-            "https://github.com/yourgithub",
-            "https://linkedin.com/in/yourlinkedin",
+            "https://github.com/PANDURANGZURE",
+            "https://www.linkedin.com/in/pandurang-santosh-zure-au3112/",
           ],
         })}
       </script>
