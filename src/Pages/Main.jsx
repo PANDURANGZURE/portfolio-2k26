@@ -8,11 +8,13 @@ import Achivements from "../Components/Achivements";
 import ContactForm from "../Components/Contact";
 import End from "../Components/End";
 import Education from "../Components/Education";
+import SEO from "../Components/SEO";
 
 function App() {
   return (
     <>
-      <Cursor/>
+    <SEO/>
+    <Cursor/>
     <Header/>
     <Hero/>
     <About/>
