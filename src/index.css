@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+html {
+  /* Forces the vertical scrollbar area to always exist, preventing width jumps */
+  scrollbar-gutter: stable; 
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  /* Stops elements like your animated H2 from creating horizontal scroll */
+  overflow-x: clip; 
+}
+
 
 @font-face {
   font-family: 'normal';
