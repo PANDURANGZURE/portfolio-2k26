@@ -15,28 +15,28 @@ const stats = [
         name: "M.V.M. Educational Campus",
         location: "Andheri, Mumbai",
         desc: "Completed classes 1st to 9th at M.V.M Educational Campus in Mumbai.",
-        year: '(2012 - 2021)', 
+        year: '2012 - 2021', 
     },
     {
         img :"https://pandurang-2k25.netlify.app/assets/ss-JyNiAYdY.png",
         name: "S.S English Medium School",
         location: "Vishrantwadi, Pune",
         desc: "Done my class 10th in Pune at SS English Medium School.",
-        year: '(2021 - 2022)', 
+        year: '2021 - 2022', 
     },
     {
         img :"https://pandurang-2k25.netlify.app/assets/adypu-tGrykxe3.png",
         name: "Ajeenkya D Y Patil School of Engineering",
         location: "Lohegaon, Pune",
         desc: "Achieved a Diploma with distinction, securing an aggregate of 83.71%.",
-        year: '(2022 - 2025)', 
+        year: '2022 - 2025', 
     },
     {
         img :"https://github.com/PANDURANGZURE/project-img/blob/main/gh%20raisoni.png?raw=true",
         name: "G.H.Raisoni Skill Tech University",
         location: "Yerwada, Pune",
         desc: "Currently Pursuing BTech in Computer Engineering.",
-        year: '(2025 - 2028)', 
+        year: '2025 - 2028', 
     },
 ];
 
@@ -101,7 +101,7 @@ function Education() {
             <div data-aos="fade-up" className="flex flex-col items-center justify-center mt-14 w-full">
                 <h2 
                     ref={boxRef} 
-                    className="text-4xl md:text-6xl font-bold text-center mb-3 mt-10 will-change-transform"
+                    className="text-4xl md:text-6xl font-bold bold text-center mb-3 mt-10 will-change-transform"
                 >
                     Academic Journey
                 </h2>
@@ -129,18 +129,18 @@ function Education() {
                                 {/* Content Section */}
                                 <div className="relative flex-1 p-6">
                                     <div className="flex flex-wrap items-start justify-between gap-2">
-                                        <h3 className="text-black text-xl font-bold leading-tight">
+                                        <h3 className="text-black bold text-xl font-bold leading-tight">
                                             {item.name}
                                         </h3>
-                                        <span className="text-[10px] font-bold bg-black text-white px-3 py-1 rounded-full whitespace-nowrap">
+                                        <span className="text-[10px] normal bg-black text-white px-3 py-1 rounded-full whitespace-nowrap">
                                             {item.year}
                                         </span>
                                     </div>
-                                    <p className="mt-1 text-gray-500 text-sm font-semibold">
+                                    <p className="mt-1 bold text-gray-800 text-sm font-semibold">
                                         {item.location}
                                     </p>
-                                    <div className="mt-4 pl-4 border-l-2 border-black/10">
-                                        <p className="text-gray-600 text-sm leading-relaxed">
+                                    <div className="mt-4 pl-4 border-l-2 border-gray-900">
+                                        <p className="text-gray-900 title text-sm leading-relaxed">
                                             {item.desc}
                                         </p>
                                     </div>

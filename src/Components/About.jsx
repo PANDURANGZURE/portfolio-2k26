@@ -161,8 +161,8 @@ My goal is to build websites that are not only functional and efficient but also
               </div>
 
               <div className="mt-6">
-                <h3 className="text-lg font-semibold">{item.title}</h3>
-                <p className="text-sm text-gray-700 mt-1">{item.desc}</p>
+                <h3 className="text-lg bold font-semibold">{item.title}</h3>
+                <p className="text-sm bold text-gray-700 mt-1">{item.desc}</p>
               </div>
             </div>
             </Tilt>
