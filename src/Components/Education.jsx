@@ -115,7 +115,7 @@ function Education() {
                             <div
                                 data-aos="fade-up"
                                 data-aos-delay={index * 100}
-                                className="group relative overflow-hidden rounded-2xl flex flex-col md:flex-row border border-black/10 bg-white transition-all duration-500 shadow-sm"
+                                className="group relative overflow-hidden rounded-2xl flex flex-col md:flex-row border border-black bg-white transition-all duration-500 shadow-sm"
                             >
                                 {/* Image Section */}
                                 <div className="relative shrink-0 w-full md:w-1/3 h-48 md:h-auto overflow-hidden">
