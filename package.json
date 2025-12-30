@@ -38,7 +38,7 @@
     "vite": "^7.2.4"
   },
   "overrides": {
-  "react": "$react",
-  "react-dom": "$react-dom"
-}
+    "react": "$react",
+    "react-dom": "$react-dom"
+  }
 }
