@@ -131,7 +131,7 @@ function Education() {
     alt={item.name}
     className="h-full w-full object-cover
     grayscale group-hover:grayscale-0
-    md:rounded-l-2xl rounded-t-3xl
+    md:rounded-l-2xl rounded-t-3xl md:rounded-t-none
     scale-95 group-hover:scale-100
     transition-all duration-500"
   />
