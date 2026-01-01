@@ -30,7 +30,7 @@ const tiltOptions = {
 
 const ProjectCard = ({ item }) => (
   <Tilt {...tiltOptions} className="">
-    <div data-aos="fade-up" className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:animate-pulse  hover:shadow-2xl transition-shadow bg-white">
+    <div data-aos="fade-up" className="border border-gray-300 rounded-3xl p-5 flex flex-col hover:border hover:shadow-2xl transition-shadow bg-white">
     <Link 
   to={`/project/${item?.title?.toLowerCase().replace(/\s+/g, '-') || 'untitled'}`} 
   state={{ item }} // This passes the whole project object to the details page
