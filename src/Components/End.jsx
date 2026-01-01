@@ -46,13 +46,14 @@ function End() {
         </div>
 
         {/* Right Section */}
-        <div className="flex items-center gap-2  border border-[#1f1f1f] px-4 py-2 rounded-full">
+        <a href="mail:pandurangzure6@gmail.com">
+          <div className="flex items-center gap-2  border border-[#1f1f1f] px-4 py-2 rounded-full">
           <span className="w-2 h-2 bg-orange-500 rounded-full animate-ping" />
           <span className="text-sm ">
             Available for new projects
           </span>
         </div>
-
+        </a>
       </div>
     </footer>
     </>

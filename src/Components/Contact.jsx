@@ -150,7 +150,7 @@ export default function ContactForm() {
             let's build something awesome together
           </p>
           <a data-aos="fade-left" href="mailto:pandurangzure3112@gmail.com" className="w-full">
-            <p className="uppercase text-lg sm:text-2xl md:text-6xl lg:text-7xl break-all md:break-normal">
+            <p className="uppercase text-lg sm:text-2xl md:text-6xl title lg:text-7xl break-all md:break-normal">
               pandurangzure3112@gmail.com
             </p>
           </a>
