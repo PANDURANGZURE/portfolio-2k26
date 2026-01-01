@@ -8,10 +8,17 @@ import Achivements from "../Components/Achivements";
 import ContactForm from "../Components/Contact";
 import End from "../Components/End";
 import Education from "../Components/Education";
+import Snowfall from 'react-snowfall';
 
 function App() {
   return (
     <>
+     <Snowfall
+     color="#181800"
+  snowflakeCount={200}
+  radius={[0.5, 2.5]}
+  speed={[0.5, 2]}
+   />
     <Cursor/>
     <Header/>
     <Hero/>
