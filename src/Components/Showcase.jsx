@@ -201,15 +201,15 @@ function Showcase() {
         <Line text="Showcase" />
         {/* Navigation */}
         <div className="border mt-3 border-black rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl  mx-auto bg-white shadow-sm">
-          <button onClick={() => setView('projects')} className={`${btnBase} ${view === 'projects' ? 'border-black bg-gray-50' : 'border-transparent text-gray-400'}`}>
+          <button onClick={() => setView('projects')} className={`${btnBase} ${view === 'projects' ? 'border-black bg-gray-50' : 'border-transparent text-gray-700 animate-pulse'}`}>
             <HiCode size={24} className="mb-1" />
             <span className="text-sm font-semibold">Projects</span>
           </button>
-          <button onClick={() => setView('certs')} className={`${btnBase} ${view === 'certs' ? 'border-black bg-gray-50' : 'border-transparent text-gray-400'}`}>
+          <button onClick={() => setView('certs')} className={`${btnBase} ${view === 'certs' ? 'border-black bg-gray-50' : 'border-transparent text-gray-700 animate-pulse'}`}>
             <PiMedalFill size={24} className="mb-1" />
             <span className="text-sm font-semibold">Certificates</span>
           </button>
-          <button onClick={() => setView('skills')} className={`${btnBase} ${view === 'skills' ? 'border-black bg-gray-50' : 'border-transparent text-gray-400'}`}>
+          <button onClick={() => setView('skills')} className={`${btnBase} ${view === 'skills' ? 'border-black bg-gray-50' : 'border-transparent text-gray-700 animate-pulse'}`}>
             <TbLayersIntersect size={24} className="mb-1" />
             <span className="text-sm font-semibold">Tech Stack</span>
           </button>
