@@ -144,29 +144,36 @@ My goal is to build websites that are not only functional and efficient but also
       {/* Stats */}
       <section data-aos="fade-up" className="w-full px-4 py-12">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stats.map((item, index) => (
-            <Tilt {...tiltOptions} className="">
-            <div
-              key={index}
-              className="relative rounded-2xl border bg-white border-black/60 p-6 flex flex-col justify-between transition hover:shadow-2xl hover:scale-105"
-            >
-              <div className="flex items-start justify-between">
-                <div className="w-12 h-12 rounded-full border border-black/60 flex items-center justify-center hover:rotate-12 ">
-                  {item.icon}
-                </div>
+          {stats.map((item) => (
+  <Tilt
+    key={item.title}
+    {...tiltOptions}
+    className=""
+  >
+    <div
+      className="relative rounded-2xl border bg-white border-black/60 p-6
+      flex flex-col justify-between transition
+      hover:shadow-2xl hover:scale-105"
+    >
+      <div className="flex items-start justify-between">
+        <div className="w-12 h-12 rounded-full border border-black/60
+        flex items-center justify-center hover:rotate-12">
+          {item.icon}
+        </div>
 
-                <span className="text-4xl md:text-5xl font-bold hover:rotate-12">
-                  {item.value}
-                </span>
-              </div>
+        <span className="text-4xl md:text-5xl font-bold hover:rotate-12">
+          {item.value}
+        </span>
+      </div>
 
-              <div className="mt-6">
-                <h3 className="text-lg bold font-semibold">{item.title}</h3>
-                <p className="text-sm bold text-gray-700 mt-1">{item.desc}</p>
-              </div>
-            </div>
-            </Tilt>
-          ))}
+      <div className="mt-6">
+        <h3 className="text-lg bold font-semibold">{item.title}</h3>
+        <p className="text-sm bold text-gray-700 mt-1">{item.desc}</p>
+      </div>
+    </div>
+  </Tilt>
+))}
+
         </div>
       </section>
     </section>
