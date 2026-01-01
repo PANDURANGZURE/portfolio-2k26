@@ -5,6 +5,7 @@ import Cursor from "./Components/Cursor";
 import Main from "./Pages/Main";
 import ProjectDetails from "./Components/ProjectDetails";
 import Loader from "./Components/Loader";
+import ScrollToTop from "./Components/ScrollToTop";
 
 /* Route change loader */
 
@@ -14,6 +15,7 @@ function App() {
   return (
     <Router>
       <Cursor />
+      <ScrollToTop/>
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/project/:id" element={<ProjectDetails />} />

@@ -18,7 +18,7 @@ function App() {
   snowflakeCount={200}
   radius={[0.5, 2.5]}
   speed={[0.5, 2]}
-   />
+   ></Snowfall>
     <Cursor/>
     <Header/>
     <Hero/>
