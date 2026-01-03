@@ -9,6 +9,7 @@ import ContactForm from "../Components/Contact";
 import End from "../Components/End";
 import Education from "../Components/Education";
 import Snowfall from 'react-snowfall';
+import Github from "../Components/Github";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
     <Hero/>
     <About/>
     <Education/>
+    <Github/>
     <Showcase/>
     <Achivements/>
     <ContactForm/>
