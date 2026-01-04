@@ -93,7 +93,7 @@ export default function Github() {
         
         className="flex flex-col items-center mb-16 "
       >
-        <h2   className="text-4xl md:text-6xl font-bold text-black text-center">
+        <h2  ref={boxRef} className="text-4xl md:text-6xl font-bold bold text-black text-center">
           Development Activity
         </h2>
         <Line text="Contributions" />

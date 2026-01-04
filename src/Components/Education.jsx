@@ -65,8 +65,8 @@ function Education() {
 
         mm.add("(min-width: 768px)", () => {
             gsap.to(boxRef.current, {
-                x: 40, // Move right
-                y: -30, // Move up
+                x: 80, // Move right
+                y: -60, // Move up
                 scrollTrigger: {
                     trigger: boxRef.current,
                     start: "top bottom", 
