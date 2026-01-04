@@ -6,6 +6,7 @@ import { Code2, Award, Trophy } from "lucide-react";
 import Tilt from 'react-parallax-tilt';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 const tiltOptions = {
@@ -135,9 +136,11 @@ function About() {
 My goal is to build websites that are not only functional and efficient but also engaging and intuitive. I pay close attention to design aesthetics and usability, ensuring that each project is both visually striking and seamless to navigate.
           </p>
 
+          <Link to="/resume">
           <button className="mt-6 px-6 py-3 rounded-full bold border border-black font-bold hover:bg-black hover:text-white transition">
-            Download CV
+            Resume
           </button>
+          </Link>
         </div>
       </div>
 

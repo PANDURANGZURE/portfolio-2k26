@@ -87,13 +87,13 @@ export default function Github() {
   }, []);
 
   return (
-    <section className="py-20 px-4 md:px-8 overflow-hidden">
+    <section className="py-20 px-4 md:px-0 overflow-hidden">
       {/* ---------- HEADING ---------- */}
       <div
         
         className="flex flex-col items-center mb-16 "
       >
-        <h2 ref={boxRef}  className="text-4xl md:text-6xl font-bold text-black text-center">
+        <h2   className="text-4xl md:text-6xl font-bold text-black text-center">
           Development Activity
         </h2>
         <Line text="Contributions" />

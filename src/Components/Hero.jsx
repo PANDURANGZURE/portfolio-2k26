@@ -8,6 +8,7 @@ import { MdOutlineArrowOutward } from "react-icons/md";
 import { Github, Linkedin,Instagram } from 'lucide-react';
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from 'react-router-dom'
 
 
 
@@ -120,6 +121,11 @@ function Hero() {
                 <Instagram size={38} />
               </a>
             </div>
+            {/* <Link to="/resume">
+          <button className="mt-6 px-6 py-3 rounded-full bold border border-black font-bold hover:bg-black hover:text-white transition">
+            Resume
+          </button>
+          </Link> */}
     <div className='flex justify-end text-right'>
       <p ref={boxRef} className='bold md:text-lg justify-end md:mt-16 mt-24 text-right slide-right pr-20 '>
         My <span  className=' text-orange-500'>goal</span> is to build websites that are not only functional and efficient <br/> but also engaging and intuitive.
