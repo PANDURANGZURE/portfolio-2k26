@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Line from './Line'
 import img from '../assets/achiv.png'
+import img1 from '../assets/image.png'
 import Tilt from 'react-parallax-tilt';
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -82,7 +83,7 @@ function Achivements() {
             <p className="text-left font-semibold md:text-2xl bold m-2">Nirmitivedh</p>
             <img 
               className="rounded-b-2xl aspect-[4/3]  object-cover object-left" 
-              src="https://media.licdn.com/dms/image/v2/D4D22AQFZK3ADstE0AA/feedshare-shrink_2048_1536/B4DZXtXBroHsAo-/0/1743443995185?e=1768435200&v=beta&t=qBOGpqsjgpXK_kIya7MCW0AYXTWQG1g0YaHDjHBaqYM" 
+              src={img1}
               alt="Nirmitivedh Achievement" 
             />
           </div>
