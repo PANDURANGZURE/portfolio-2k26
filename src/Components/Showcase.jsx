@@ -210,15 +210,16 @@ function Showcase() {
 
   return (
     <div className="min-h-screen bg-white px-4 pt-10 pb-20">
-      <h2 ref={boxRef} className="text-4xl md:text-6xl font-bold text-center mb-4">
+      <h2 ref={boxRef} className="text-4xl md:text-6xl font-bold bold text-center mb-4">
         Portfolio Showcase
       </h2>
 
-      <p className="text-center mb-6">Projects • Certificates • Tech Stack</p>
-      <Line text="Showcase" />
+      <p className="text-center text-xl bold mb-6">Explore my journey through <span className="text-orange-500"> projects</span> , <span className="text-orange-500">certifications </span>and <span className="text-orange-500">technical expertise </span>. <br />
+Each section represents a milestone in my continuous learning path.</p>
+      <Line  text="Showcase" />
 
       {/* NAVIGATION */}
-      <div className="border border-black rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl mx-auto bg-white shadow-sm">
+      <div className="border mt-6 border-black rounded-2xl p-2 flex gap-3 mb-10 max-w-6xl mx-auto bg-white shadow-sm">
         <NavBtn icon={HiCode} label="Projects" active={view === "projects"} onClick={() => setView("projects")} />
         <NavBtn icon={PiMedalFill} label="Certificates" active={view === "certs"} onClick={() => setView("certs")} />
         <NavBtn icon={TbLayersIntersect} label="Tech Stack" active={view === "skills"} onClick={() => setView("skills")} />
